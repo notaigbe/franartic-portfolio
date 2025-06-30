@@ -2,6 +2,7 @@
 const nextConfig = {
     images: {
     domains: ['via.placeholder.com'],
+    unoptimized: true, // Use this if you want to disable Next.js image optimization
   },
   output: "export",
   // optionally:

@@ -1000,22 +1000,22 @@ export default function MakeupArtistPortfolio() {
 
   {/* Social Icons for mobile (below badge) */}
   <div className="flex space-x-4 md:hidden">
-<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 📱 */}
           {/* <Instagram /> */}
           <Image src="/assets/img/icons/instagram.svg" alt="Instagram" className="w-5 h-5" width={24} height={24} />
         </a>
-        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 📷 */}
           {/* <Facebook /> */}
           <Image src="/assets/img/icons/facebook.svg" alt="Facebook" className="w-5 h-5" width={24} height={24} />
         </a>
-        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 🐦 */}
           {/* <Twitter /> */}
           <Image src="/assets/img/icons/x.svg" alt="Twitter" className="w-5 h-5" width={24} height={24}  />
         </a>
-        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 🔗 */}
           {/* <Linkedin /> */}
           <Image src="/assets/img/icons/tiktok.svg" alt="tiktok" className="w-5 h-5" width={24} height={24} />
@@ -1025,22 +1025,22 @@ export default function MakeupArtistPortfolio() {
 
 {/* Social Icons for desktop (top-right corner) */}
 <div className="hidden md:flex absolute top-4 right-4 space-x-4 z-50">
-<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 📱 */}
           {/* <Instagram /> */}
           <Image src="/assets/img/icons/instagram.svg" alt="Instagram" className="w-5 h-5" width={24} height={24} />
         </a>
-        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 📷 */}
           {/* <Facebook /> */}
           <Image src="/assets/img/icons/facebook.svg" alt="Facebook" className="w-5 h-5" width={24} height={24} />
         </a>
-        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 🐦 */}
           {/* <Twitter /> */}
           <Image src="/assets/img/icons/x.svg" alt="Twitter" className="w-5 h-5" width={24} height={24}  />
         </a>
-        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
           {/* 🔗 */}
           {/* <Linkedin /> */}
           <Image src="/assets/img/icons/tiktok.svg" alt="tiktok" className="w-5 h-5" width={24} height={24} />

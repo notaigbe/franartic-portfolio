@@ -35,7 +35,7 @@ const screens = [
     subtitle: "Francisca Otaigbe",
     content:
       "I’m a seasoned beauty and special effects makeup artist with over seven years of professional experience and two AMVCA nominations. From film sets to TV screens, I have carved a space for myself as a transformative storyteller — one brush stroke, one prosthetic piece at a time.\n\nAs a freelance artist, I’ve worked across multiple productions and currently lead a talented team of makeup artists and hairstylists on film and television projects. My artistry is rooted in a deep love for storytelling, where every detail becomes a living chapter in a character’s journey.\n\nDriven by the power of transformation, I breathe life into scripts — whether it’s subtle glam or full-blown gore. My mission is always the same: to bring the director’s vision to life, to make audiences believe, feel, and remember.\n\nI don’t just do makeup, I build identities.",
-    bgColor: "bg-gradient-to-br from-rose-900 via-pink-900 to-red-900",
+    bgColor: "bg-gradient-to-br from-blue-900 via-pink-900 to-red-900",
     icon: <User className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: ["/assets/img/about.jpg"],
@@ -61,7 +61,7 @@ const screens = [
     subtitle: "Specializing In",
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
-    bgColor: "bg-gradient-to-br from-amber-900 via-amber-800 to-orange-900",
+    bgColor: "bg-gradient-to-br from-amber-900 via-sky-800 to-rose-900",
     icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
@@ -83,7 +83,7 @@ const screens = [
     subtitle: "Specializing In",
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
-    bgColor: "bg-gradient-to-br from-amber-900 via-amber-800 to-orange-900",
+    bgColor: "bg-gradient-to-br from-gray-900 via-amber-800 to-slate-900",
     icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
@@ -125,7 +125,7 @@ const screens = [
     subtitle: "Let's Create Magic",
     content:
       "Ready to look and feel amazing? Contact me to schedule your personalized makeup session",
-    bgColor: "bg-gradient-to-br from-neutral-800 via-stone-800 to-slate-900",
+    bgColor: "bg-gradient-to-br from-neutral-600 via-teal-900 to-slate-900",
     icon: <Mail className="w-16 h-16 md:w-20 md:h-20 text-neutral-300 mb-4" />,
     accentText: "Available 7 Days",
   },
@@ -138,8 +138,7 @@ const testimonials = [
     occasion: "Bridal Makeup",
     text: "Sophia made me feel like a goddess on my wedding day. Her attention to detail is unmatched! I've never felt more beautiful.",
     rating: 5,
-    image:
-      "/assets/img/testimonials/testimonials-1.jpg",
+    image: "/assets/img/testimonials/testimonials-1.jpg",
   },
   {
     id: 2,
@@ -147,8 +146,7 @@ const testimonials = [
     occasion: "Editorial Shoot",
     text: "Working with Sophia was incredible. She understood exactly what I wanted and exceeded all expectations. Pure artistry!",
     rating: 5,
-    image:
-      "/assets/img/testimonials/testimonials-2.jpg",
+    image: "/assets/img/testimonials/testimonials-2.jpg",
   },
   {
     id: 3,
@@ -156,8 +154,7 @@ const testimonials = [
     occasion: "Special Event",
     text: "Sophia's work is phenomenal. She made me feel confident and radiant for my anniversary celebration. Highly recommend!",
     rating: 5,
-    image:
-      "/assets/img/testimonials/testimonials-3.jpg",
+    image: "/assets/img/testimonials/testimonials-3.jpg",
   },
   {
     id: 4,
@@ -165,8 +162,7 @@ const testimonials = [
     occasion: "Photoshoot",
     text: "The most talented makeup artist I've worked with. Sophia brings out your natural beauty while creating stunning looks.",
     rating: 5,
-    image:
-      "/assets/img/testimonials/testimonials-4.jpg",
+    image: "/assets/img/testimonials/testimonials-4.jpg",
   },
 ];
 
@@ -313,9 +309,9 @@ export default function MakeupArtistPortfolio() {
                     src={currentScreenData.image}
                     alt="Francisca Otaigbe"
                     className="w-full h-full object-cover"
-                     width={400}
-                      height={600}
-                      style={{ width: "100%", height: "100%"  }}
+                    width={400}
+                    height={600}
+                    style={{ width: "100%", height: "100%" }}
                   />
                 </div>
                 <div className="absolute -top-4 -right-4 bg-white/20 backdrop-blur-md rounded-full p-3 border border-white/30">
@@ -367,9 +363,9 @@ export default function MakeupArtistPortfolio() {
                   src={currentScreenData.images?.[0]}
                   alt="About"
                   className="w-full h-auto object-cover"
-                   width={400}
-                      height={600}
-                      style={{ width: "100%", height: "100%"  }}
+                  width={400}
+                  height={600}
+                  style={{ width: "100%", height: "100%" }}
                 />
               </div>
 
@@ -414,9 +410,9 @@ export default function MakeupArtistPortfolio() {
                       src={image}
                       alt={`Service ${index + 1}`}
                       className="w-full h-full object-cover"
-                       width={400}
+                      width={400}
                       height={400}
-                      style={{ width: "100%", height: "100%"  }}
+                      style={{ width: "100%", height: "100%" }}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -469,7 +465,7 @@ export default function MakeupArtistPortfolio() {
                       src={img}
                       alt={`Featured ${index + 1}`}
                       className="w-60 h-80 object-cover rounded-xl shadow-lg flex-shrink-0"
-                       width={254}
+                      width={254}
                       height={328}
                       // style={{ width: "100%", height: "100%"  }}
                     />
@@ -606,9 +602,9 @@ export default function MakeupArtistPortfolio() {
                       src={image}
                       alt={`Portfolio ${index + 1}`}
                       className="w-full h-full object-cover"
-                       width={400}
+                      width={400}
                       height={400}
-                      style={{ width: "100%", height: "100%"  }}
+                      style={{ width: "100%", height: "100%" }}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -661,9 +657,9 @@ export default function MakeupArtistPortfolio() {
                     src={currentTestimonialData.image}
                     alt={currentTestimonialData.name}
                     className="w-16 h-16 rounded-full border-2 border-white/30"
-                     width={50}
-                      height={50}
-                      style={{ width: "100%", height: "100%"  }}
+                    width={50}
+                    height={50}
+                    // style={{ width: "100%", height: "100%" }}
                   />
                   <div className="text-left">
                     <h3 className="font-semibold text-lg">
@@ -744,7 +740,7 @@ export default function MakeupArtistPortfolio() {
                       className="w-full h-full object-cover"
                       width={400}
                       height={600}
-                      style={{ width: "100%", height: "100%"  }}
+                      style={{ width: "100%", height: "100%" }}
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -842,91 +838,102 @@ export default function MakeupArtistPortfolio() {
       </div>
 
       {/* Navigation Controls */}
-<div>
-  {/* Desktop Controls: absolute center sides */}
-  <div className="absolute inset-0 hidden md:flex items-center justify-between px-8 pointer-events-none">
-    <button
-      onClick={prevScreen}
-      disabled={currentScreen === 0 || isAnimating}
-      className={`
+      <div>
+        {/* Desktop Controls: absolute center sides */}
+        <div className="absolute inset-0 hidden md:flex items-center justify-between px-8 pointer-events-none">
+          <button
+            onClick={prevScreen}
+            disabled={currentScreen === 0 || isAnimating}
+            className={`
         pointer-events-auto group
         w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20
         flex items-center justify-center
         transition-all duration-300 hover:bg-black/60 hover:scale-110
-        ${currentScreen === 0 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
+        ${
+          currentScreen === 0
+            ? "opacity-30 cursor-not-allowed"
+            : "opacity-80 hover:opacity-100"
+        }
       `}
-    >
-      <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
-    </button>
+          >
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
+          </button>
 
-    <button
-      onClick={nextScreen}
-      disabled={currentScreen === screens.length - 1 || isAnimating}
-      className={`
+          <button
+            onClick={nextScreen}
+            disabled={currentScreen === screens.length - 1 || isAnimating}
+            className={`
         pointer-events-auto group
         w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20
         flex items-center justify-center
         transition-all duration-300 hover:bg-black/60 hover:scale-110
-        ${currentScreen === screens.length - 1 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
+        ${
+          currentScreen === screens.length - 1
+            ? "opacity-30 cursor-not-allowed"
+            : "opacity-80 hover:opacity-100"
+        }
       `}
-    >
-      <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
-    </button>
-  </div>
+          >
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
 
-  {/* Mobile Controls: fixed bottom-right */}
-  <div className="fixed bottom-4 right-4 flex md:hidden space-x-3 z-50">
-    <button
-      onClick={prevScreen}
-      disabled={currentScreen === 0 || isAnimating}
-      className={`
+        {/* Mobile Controls: fixed bottom-right */}
+        <div className="fixed bottom-4 right-4 flex md:hidden space-x-3 z-50">
+          <button
+            onClick={prevScreen}
+            disabled={currentScreen === 0 || isAnimating}
+            className={`
         group w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
         flex items-center justify-center transition-all duration-300
         hover:bg-black/60 hover:scale-110
-        ${currentScreen === 0 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
+        ${
+          currentScreen === 0
+            ? "opacity-30 cursor-not-allowed"
+            : "opacity-80 hover:opacity-100"
+        }
       `}
-    >
-      <ChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-    </button>
+          >
+            <ChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+          </button>
 
-    <button
-      onClick={nextScreen}
-      disabled={currentScreen === screens.length - 1 || isAnimating}
-      className={`
+          <button
+            onClick={nextScreen}
+            disabled={currentScreen === screens.length - 1 || isAnimating}
+            className={`
         group w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
         flex items-center justify-center transition-all duration-300
         hover:bg-black/60 hover:scale-110
-        ${currentScreen === screens.length - 1 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
+        ${
+          currentScreen === screens.length - 1
+            ? "opacity-30 cursor-not-allowed"
+            : "opacity-80 hover:opacity-100"
+        }
       `}
-    >
-      <ChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-    </button>
-  </div>
-</div>
-
+          >
+            <ChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+      </div>
 
       {/* Mobile Swipe Navigation */}
-<div className="md:hidden fixed bottom-4 right-4 flex space-x-3 z-50">
-  <button
-    onClick={prevScreen}
-    disabled={currentScreen === 0 || isAnimating}
-    className={`
+      <div className="md:hidden fixed bottom-4 right-4 flex space-x-3 z-50">
+        <button
+          onClick={prevScreen}
+          disabled={currentScreen === 0 || isAnimating}
+          className={`
       w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
       flex items-center justify-center
       transition-all duration-300 hover:bg-black/60
-      ${
-        currentScreen === 0
-          ? "opacity-30 cursor-not-allowed"
-          : "opacity-80"
-      }
+      ${currentScreen === 0 ? "opacity-30 cursor-not-allowed" : "opacity-80"}
     `}
-  >
-    <ChevronLeft className="w-5 h-5 text-white" />
-  </button>
-  <button
-    onClick={nextScreen}
-    disabled={currentScreen === screens.length - 1 || isAnimating}
-    className={`
+        >
+          <ChevronLeft className="w-5 h-5 text-white" />
+        </button>
+        <button
+          onClick={nextScreen}
+          disabled={currentScreen === screens.length - 1 || isAnimating}
+          className={`
       w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
       flex items-center justify-center
       transition-all duration-300 hover:bg-black/60
@@ -936,11 +943,10 @@ export default function MakeupArtistPortfolio() {
           : "opacity-80"
       }
     `}
-  >
-    <ChevronRight className="w-5 h-5 text-white" />
-  </button>
-</div>
-
+        >
+          <ChevronRight className="w-5 h-5 text-white" />
+        </button>
+      </div>
 
       {/* Screen Indicators */}
       <div className="absolute bottom-2 md:bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4">
@@ -991,65 +997,133 @@ export default function MakeupArtistPortfolio() {
         />
       </div>
 
-{/* Brand badge (centered) and mobile social icons (stacked below it) */}
-<div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
-  {/* Brand Badge */}
-  <div className="bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-2xl font-medium border border-white/20">
-    ✨ Franartic
-  </div>
+      {/* Brand badge (centered) and mobile social icons (stacked below it) */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
+        {/* Brand Badge */}
+        <div className="bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-2xl font-medium border border-white/20">
+          ✨ Franartic
+        </div>
 
-  {/* Social Icons for mobile (below badge) */}
-  <div className="flex space-x-4 md:hidden">
-<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        {/* Social Icons for mobile (below badge) */}
+        <div className="flex space-x-4 md:hidden">
+          <a
+            href="https://www.instagram.com/franartic"
+            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+          >
+            {/* 📱 */}
+            {/* <Instagram /> */}
+            <Image
+              src="/assets/img/icons/instagram.svg"
+              alt="Instagram"
+              className="w-5 h-5"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/franartic"
+            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+          >
+            {/* 📷 */}
+            {/* <Facebook /> */}
+            <Image
+              src="/assets/img/icons/facebook.svg"
+              alt="Facebook"
+              className="w-5 h-5"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://www.x.com/franartic"
+            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+          >
+            {/* 🐦 */}
+            {/* <Twitter /> */}
+            <Image
+              src="/assets/img/icons/x.svg"
+              alt="Twitter"
+              className="w-5 h-5"
+              width={24}
+              height={24}
+            />
+          </a>
+          <a
+            href="https://www.tiktok.com/@franartic"
+            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+          >
+            {/* 🔗 */}
+            {/* <Linkedin /> */}
+            <Image
+              src="/assets/img/icons/tiktok.svg"
+              alt="tiktok"
+              className="w-5 h-5"
+              width={24}
+              height={24}
+            />
+          </a>
+        </div>
+      </div>
+
+      {/* Social Icons for desktop (top-right corner) */}
+      <div className="hidden md:flex absolute top-4 right-4 space-x-4 z-50">
+        <a
+          href="https://www.instagram.com/franartic"
+          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+        >
           {/* 📱 */}
           {/* <Instagram /> */}
-          <Image src="/assets/img/icons/instagram.svg" alt="Instagram" className="w-5 h-5" width={24} height={24} />
+          <Image
+            src="/assets/img/icons/instagram.svg"
+            alt="Instagram"
+            className="w-5 h-5"
+            width={24}
+            height={24}
+          />
         </a>
-        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a
+          href="https://www.facebook.com/franartic"
+          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+        >
           {/* 📷 */}
           {/* <Facebook /> */}
-          <Image src="/assets/img/icons/facebook.svg" alt="Facebook" className="w-5 h-5" width={24} height={24} />
+          <Image
+            src="/assets/img/icons/facebook.svg"
+            alt="Facebook"
+            className="w-5 h-5"
+            width={24}
+            height={24}
+          />
         </a>
-        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a
+          href="https://www.x.com/franartic"
+          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+        >
           {/* 🐦 */}
           {/* <Twitter /> */}
-          <Image src="/assets/img/icons/x.svg" alt="Twitter" className="w-5 h-5" width={24} height={24}  />
+          <Image
+            src="/assets/img/icons/x.svg"
+            alt="Twitter"
+            className="w-5 h-5"
+            width={24}
+            height={24}
+          />
         </a>
-        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
+        <a
+          href="https://www.tiktok.com/@franartic"
+          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
+        >
           {/* 🔗 */}
           {/* <Linkedin /> */}
-          <Image src="/assets/img/icons/tiktok.svg" alt="tiktok" className="w-5 h-5" width={24} height={24} />
+          <Image
+            src="/assets/img/icons/tiktok.svg"
+            alt="tiktok"
+            className="w-5 h-5"
+            width={24}
+            height={24}
+          />
         </a>
-  </div>
-</div>
-
-{/* Social Icons for desktop (top-right corner) */}
-<div className="hidden md:flex absolute top-4 right-4 space-x-4 z-50">
-<a href="https://www.instagram.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
-          {/* 📱 */}
-          {/* <Instagram /> */}
-          <Image src="/assets/img/icons/instagram.svg" alt="Instagram" className="w-5 h-5" width={24} height={24} />
-        </a>
-        <a href="https://www.facebook.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
-          {/* 📷 */}
-          {/* <Facebook /> */}
-          <Image src="/assets/img/icons/facebook.svg" alt="Facebook" className="w-5 h-5" width={24} height={24} />
-        </a>
-        <a href="https://www.x.com/franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
-          {/* 🐦 */}
-          {/* <Twitter /> */}
-          <Image src="/assets/img/icons/x.svg" alt="Twitter" className="w-5 h-5" width={24} height={24}  />
-        </a>
-        <a href="https://www.tiktok.com/@franartic" className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm">
-          {/* 🔗 */}
-          {/* <Linkedin /> */}
-          <Image src="/assets/img/icons/tiktok.svg" alt="tiktok" className="w-5 h-5" width={24} height={24} />
-        </a>
-</div>
-
-
-      
-
+      </div>
     </div>
   );
 }

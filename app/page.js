@@ -69,16 +69,16 @@ const screens = [
     icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
-      "/assets/img/portfolio/portfolio-4.png",
+      "/assets/img/featured/featured-1.png",
+      "/assets/img/featured/featured-2.png",
+      "/assets/img/featured/featured-3.png",
+      "/assets/img/featured/featured-4.png",
+      "/assets/img/featured/featured-5.png",
+      "/assets/img/featured/featured-6.png",
+      "/assets/img/featured/featured-7.png",
+      "/assets/img/featured/featured-8.png",
+      "/assets/img/featured/featured-9.png",
+      "/assets/img/featured/featured-10.png",
     ],
   },
   {
@@ -445,7 +445,7 @@ export default function MakeupArtistPortfolio() {
             </div>
 
             <div
-              className="overflow-x-auto cursor-grab active:cursor-grabbing"
+              className="overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar"
               ref={scrollRef}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}

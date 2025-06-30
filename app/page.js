@@ -13,6 +13,9 @@ import {
   Award,
   Phone,
   User,
+  Baby,
+  BadgeCheck,
+  PartyPopper
 } from "lucide-react";
 import { useRef } from "react";
 import Image from "next/image";
@@ -47,7 +50,7 @@ const screens = [
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
     bgColor: "bg-gradient-to-br from-amber-900 via-amber-800 to-orange-900",
-    icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <BadgeCheck className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
       "/assets/img/portfolio/portfolio-1.png",
@@ -62,7 +65,7 @@ const screens = [
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
     bgColor: "bg-gradient-to-br from-amber-900 via-sky-800 to-rose-900",
-    icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <PartyPopper className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
       "/assets/img/featured/featured-1.png",
@@ -783,14 +786,14 @@ export default function MakeupArtistPortfolio() {
 
             <div className="space-y-4 animate-fade-in-up-delay-3">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <a href="tel:+2348066838876" className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                   <Phone className="w-4 h-4 mr-2" />
                   Call Now: (234) 806-683-8876
-                </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center">
+                </a>
+                <a href="mailto:franarticartistry@gmail.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center">
                   <Mail className="w-4 h-4 mr-2" />
                   Email Me
-                </button>
+                </a>
               </div>
               <div className="text-sm opacity-80">
                 📍 Available in Lagos, Nigeria and for travel
@@ -1005,9 +1008,10 @@ export default function MakeupArtistPortfolio() {
       {/* Brand badge (centered) and mobile social icons (stacked below it) */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
         {/* Brand Badge */}
-        <div className="bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-2xl font-medium border border-white/20">
-          ✨ Franartic
-        </div>
+<div className="bg-white/10 backdrop-blur-lg text-white px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10">
+  ✨ Franartic
+</div>
+
 
         {/* Social Icons for mobile (below badge) */}
         <div className="flex space-x-4 md:hidden">

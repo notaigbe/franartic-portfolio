@@ -268,22 +268,22 @@ export default function MakeupArtistPortfolio() {
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [currentScreen, isAnimating]);
 
-  //   useEffect(() => {
-  //   const scrollEl = scrollRef.current;
-  //   if (!scrollEl) return;
+    useEffect(() => {
+    const scrollEl = scrollRef.current;
+    if (!scrollEl) return;
 
-  //   const interval = setInterval(() => {
-  //     if (!isDragging.current) {
-  //       scrollEl.scrollLeft += 1;
-  //       // Reset to start for infinite loop effect
-  //       if (scrollEl.scrollLeft >= scrollEl.scrollWidth - scrollEl.clientWidth) {
-  //         scrollEl.scrollLeft = 0;
-  //       }
-  //     }
-  //   }, 20); // adjust speed here
+    const interval = setInterval(() => {
+      if (!isDragging.current) {
+        scrollEl.scrollLeft += 1;
+        // Reset to start for infinite loop effect
+        if (scrollEl.scrollLeft >= scrollEl.scrollWidth - scrollEl.clientWidth) {
+          scrollEl.scrollLeft = 0;
+        }
+      }
+    }, 20); // adjust speed here
 
-  //   return () => clearInterval(interval);
-  // }, []);
+    return () => clearInterval(interval);
+  }, []);
 
   const currentScreenData = screens[currentScreen];
 
@@ -415,6 +415,7 @@ export default function MakeupArtistPortfolio() {
                       style={{ width: "100%", height: "100%" }}
                     />
                   </div>
+                  SFX Makeup
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               ))}
@@ -949,7 +950,7 @@ export default function MakeupArtistPortfolio() {
       </div>
 
       {/* Screen Indicators */}
-      <div className="absolute bottom-2 md:bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4">
+      <div className="absolute bottom-8 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4">
         {screens.map((screen, index) => (
           <button
             key={index}
@@ -988,6 +989,10 @@ export default function MakeupArtistPortfolio() {
           </button>
         ))}
       </div>
+        {/* Footer - Bottom Left */}
+<div className="fixed bottom-2 left-4 text-white text-xs opacity-70 z-50">
+  © 2025 Franartic. Powered by <a href="https://www.gnotable.ng" className="underline">Gnotable Technologies</a>
+</div>
 
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-black/30">

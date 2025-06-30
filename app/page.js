@@ -678,7 +678,7 @@ export default function MakeupArtistPortfolio() {
               </div>
 
               <blockquote className="text-lg md:text-xl italic leading-relaxed">
-                "{currentTestimonialData.text}"
+                {currentTestimonialData.text}
               </blockquote>
             </div>
 

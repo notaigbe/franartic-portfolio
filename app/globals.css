@@ -1335,3 +1335,22 @@ body {
     transform: translateX(-50%);
   }
 }
+
+@keyframes shimmer{
+  0%{
+    background-position: -200% 0;
+  }
+  100%{
+    background-position: 200% 0;
+  }
+}
+
+.shimmer{
+  background-image: linear-gradient(120deg,
+  rgba(255, 255, 255, 0.05) 0%,
+  rgba(255, 255, 255, 0.3) 50%,
+  rgba(255, 255, 255, 0.05) 100%,);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite linear;
+  border-radius: 9999px;
+}

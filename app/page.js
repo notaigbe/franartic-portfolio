@@ -953,7 +953,7 @@ export default function MakeupArtistPortfolio() {
       </div>
 
       {/* Screen Indicators */}
-      <div className="absolute bottom-8 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4">
+      <div className="absolute bottom-8 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4 z-50">
         {screens.map((screen, index) => (
           <button
             key={index}
@@ -993,10 +993,12 @@ export default function MakeupArtistPortfolio() {
         ))}
       </div>
         {/* Footer - Bottom Left */}
+<footer>
 <div className="fixed bottom-2 left-4 text-white text-xs opacity-70 z-50">
   © 2025 Franartic. Powered by <a href="https://www.gnotable.ng" className="underline">Gnotable Technologies</a>
 </div>
-
+</footer>
+<header>
       {/* Progress Bar */}
       <div className="absolute top-0 left-0 w-full h-1 bg-black/30">
         <div
@@ -1008,7 +1010,7 @@ export default function MakeupArtistPortfolio() {
       {/* Brand badge (centered) and mobile social icons (stacked below it) */}
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
         {/* Brand Badge */}
-<div className="bg-white/10 backdrop-blur-lg text-white px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10">
+<div className="bg-white/10 backdrop-blur-lg text-white px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10 shimmer">
   ✨ Franartic
 </div>
 
@@ -1133,6 +1135,8 @@ export default function MakeupArtistPortfolio() {
           />
         </a>
       </div>
+      </header>
     </div>
+    
   );
 }

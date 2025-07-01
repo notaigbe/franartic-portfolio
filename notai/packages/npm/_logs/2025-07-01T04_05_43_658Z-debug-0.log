@@ -1,0 +1,56 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\notai\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.1.0
+2 info using node@v22.14.0
+3 silly config load:file:C:\Users\notai\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:g:\notai\VSCodeProjects\franartic-portfolio\.npmrc
+5 silly config load:file:C:\Users\notai\.npmrc
+6 silly config load:file:C:\Users\notai\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm outdated
+8 verbose argv "outdated" "--json"
+9 verbose logfile logs-max:10 dir:G:\notai\VSCodeProjects\franartic-portfolio\notai\packages\npm\_logs\2025-07-01T04_05_43_658Z-
+10 verbose logfile G:\notai\VSCodeProjects\franartic-portfolio\notai\packages\npm\_logs\2025-07-01T04_05_43_658Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 silly logfile done cleaning log files
+14 http fetch GET https://registry.npmjs.org/next attempt 1 failed with ENOTFOUND
+15 http fetch GET https://registry.npmjs.org/react-dom attempt 1 failed with ENOTFOUND
+16 http fetch GET https://registry.npmjs.org/lucide-react attempt 1 failed with ENOTFOUND
+17 http fetch GET https://registry.npmjs.org/react attempt 1 failed with ENOTFOUND
+18 http fetch GET https://registry.npmjs.org/@eslint%2feslintrc attempt 1 failed with ENOTFOUND
+19 http fetch GET https://registry.npmjs.org/eslint attempt 1 failed with ENOTFOUND
+20 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 1 failed with ENOTFOUND
+21 http fetch GET https://registry.npmjs.org/@tailwindcss%2fpostcss attempt 1 failed with ENOTFOUND
+22 http fetch GET https://registry.npmjs.org/tailwindcss attempt 1 failed with ENOTFOUND
+23 http fetch GET https://registry.npmjs.org/next attempt 2 failed with ENOTFOUND
+24 http fetch GET https://registry.npmjs.org/react-dom attempt 2 failed with ENOTFOUND
+25 http fetch GET https://registry.npmjs.org/lucide-react attempt 2 failed with ENOTFOUND
+26 http fetch GET https://registry.npmjs.org/react attempt 2 failed with ENOTFOUND
+27 http fetch GET https://registry.npmjs.org/@eslint%2feslintrc attempt 2 failed with ENOTFOUND
+28 http fetch GET https://registry.npmjs.org/eslint attempt 2 failed with ENOTFOUND
+29 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 2 failed with ENOTFOUND
+30 http fetch GET https://registry.npmjs.org/@tailwindcss%2fpostcss attempt 2 failed with ENOTFOUND
+31 http fetch GET https://registry.npmjs.org/tailwindcss attempt 2 failed with ENOTFOUND
+32 http fetch GET https://registry.npmjs.org/next attempt 3 failed with ENOTFOUND
+33 http fetch GET https://registry.npmjs.org/react-dom attempt 3 failed with ENOTFOUND
+34 http fetch GET https://registry.npmjs.org/lucide-react attempt 3 failed with ENOTFOUND
+35 http fetch GET https://registry.npmjs.org/react attempt 3 failed with ENOTFOUND
+36 http fetch GET https://registry.npmjs.org/@eslint%2feslintrc attempt 3 failed with ENOTFOUND
+37 http fetch GET https://registry.npmjs.org/eslint attempt 3 failed with ENOTFOUND
+38 http fetch GET https://registry.npmjs.org/eslint-config-next attempt 3 failed with ENOTFOUND
+39 http fetch GET https://registry.npmjs.org/@tailwindcss%2fpostcss attempt 3 failed with ENOTFOUND
+40 http fetch GET https://registry.npmjs.org/tailwindcss attempt 3 failed with ENOTFOUND
+41 http fetch GET 200 https://registry.npmjs.org/lucide-react 70281ms (cache stale)
+42 http fetch GET 200 https://registry.npmjs.org/@eslint%2feslintrc 70293ms (cache stale)
+43 http fetch GET 200 https://registry.npmjs.org/eslint 70300ms (cache stale)
+44 http fetch GET 200 https://registry.npmjs.org/react 70359ms (cache stale)
+45 http fetch GET 200 https://registry.npmjs.org/react-dom 70391ms (cache stale)
+46 http fetch GET 200 https://registry.npmjs.org/@tailwindcss%2fpostcss 70434ms (cache stale)
+47 http fetch GET 200 https://registry.npmjs.org/eslint-config-next 70451ms (cache stale)
+48 http fetch GET 200 https://registry.npmjs.org/tailwindcss 70500ms (cache stale)
+49 http fetch GET 200 https://registry.npmjs.org/next 70689ms (cache stale)
+50 verbose cwd g:\notai\VSCodeProjects\franartic-portfolio
+51 verbose os Windows_NT 10.0.22631
+52 verbose node v22.14.0
+53 verbose npm  v11.1.0
+54 verbose exit 0
+55 info ok

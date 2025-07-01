@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -17,8 +17,13 @@ import {
   BadgeCheck,
   PartyPopper
 } from "lucide-react";
-import { useRef } from "react";
 import Image from "next/image";
+import FloatingElements from "./components/FloatingElements";
+import HeaderBar from "./components/HeaderBar";
+import FooterBar from "./components/FooterBar";
+import NavigationControls from "./components/NavigationControls";
+import ScreenIndicators from "./components/ScreenIndicators";
+import ScreenContent from "./components/ScreenContent";
 const screens = [
   {
     id: "hero",
@@ -300,529 +305,25 @@ export default function MakeupArtistPortfolio() {
     );
   };
 
-  const renderScreenContent = () => {
-    switch (currentScreen) {
-      case 0: // Hero
-        return (
-          <div className="text-center text-white px-8 max-w-4xl z-10 p-16">
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
-              <div className="relative">
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl animate-bounce-slow">
-                  <Image
-                    src={currentScreenData.image}
-                    alt="Francisca Otaigbe"
-                    className="w-full h-full object-cover"
-                    width={400}
-                    height={600}
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                </div>
-                <div className="absolute -top-4 -right-4 bg-white/20 backdrop-blur-md rounded-full p-3 border border-white/30">
-                  {currentScreenData.icon}
-                </div>
-              </div>
-              <div className="text-left md:text-left">
-                <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                  {currentScreenData.subtitle}
-                </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                  {currentScreenData.title}
-                </h1>
-                <p className="text-lg md:text-xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-lg">
-                  {currentScreenData.content}
-                </p>
-                <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2">
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  {currentScreenData.accentText}
-                </div>
-              </div>
-            </div>
-          </div>
-        );
 
-      case 1: // About
-        return (
-          <div className="text-white px-8 max-w-6xl mx-auto z-10">
-            {/* Icon */}
-            <div className="text-center mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-
-            {/* Subtitle and Title */}
-            <div className="text-center mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-            </div>
-
-            {/* Image and Text in Columns */}
-            <div className="flex flex-col md:flex-row items-start gap-8 animate-fade-in-up-delay">
-              {/* Image Column */}
-              <div className="w-full md:w-1/4 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src={currentScreenData.images?.[0]}
-                  alt="About"
-                  className="w-full h-auto object-cover"
-                  width={400}
-                  height={600}
-                  style={{ width: "100%", height: "100%" }}
-                />
-              </div>
-
-              {/* Text Column */}
-              <div className="w-full md:w-3/4 text-lg md:text-xl leading-relaxed font-light whitespace-pre-line">
-                {currentScreenData.content}
-              </div>
-            </div>
-
-            {/* Accent Text */}
-            <div className="flex justify-center mt-10 animate-fade-in-up-delay-3">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium">
-                <Sparkles className="w-4 h-4 mr-2" />
-                {currentScreenData.accentText}
-              </div>
-            </div>
-          </div>
-        );
-      case 2: // Services (On Set)
-        return (
-          <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
-                {currentScreenData.content}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in-up-delay-2">
-              {currentScreenData.images?.map((image, index) => (
-                <div key={index} className="relative group">
-                  <div className="w-full h-48 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
-                    <Image
-                      src={image}
-                      alt={`Service ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      width={400}
-                      height={400}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                  SFX Makeup
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ))}
-            </div>
-
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div>
-          </div>
-        );
-
-      case 3: // Feature (Film Projects)
-        return (
-          <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
-                {currentScreenData.content}
-              </p>
-            </div>
-
-            <div
-              className="overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar"
-              ref={scrollRef}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              <div className="flex w-max auto-scroll-x auto-scroll-paused space-x-4">
-                {currentScreenData.images
-                  .concat(currentScreenData.images)
-                  .map((img, index) => (
-                    <Image
-                      key={index}
-                      src={img}
-                      alt={`Featured ${index + 1}`}
-                      className="w-60 h-80 object-cover rounded-xl shadow-lg flex-shrink-0"
-                      width={254}
-                      height={328}
-                      // style={{ width: "100%", height: "100%"  }}
-                    />
-                  ))}
-              </div>
-            </div>
-
-            {/* <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div> */}
-          </div>
-        );
-
-      case 4: // Featured (Film Projects)
-        return (
-          <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              <div className="grid md:grid-cols-5 gap-6 text-left text-white font-light text-sm sm:text-base animate-fade-in-up-delay">
-                {/* Blockbusters */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Blockbusters</h3>
-                  <ul className="space-y-1">
-                    <li>• Accroche (2022)</li>
-                    <li>• Citation (2020)</li>
-                    <li>• Swallow (2021)</li>
-                    <li>• Nimbe (2018)</li>
-                    <li>• The Money Wives of Patrick</li>
-                    <li>• Deja Vu</li>
-                    <li>• Under</li>
-                  </ul>
-                </div>
-
-                {/* Series */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Series</h3>
-                  <ul className="space-y-1">
-                    <li>• MTV Shuga 6 (2017)</li>
-                    <li>• MTV Shuga Naija 4 (2019)</li>
-                    <li>• Cross Roads (2017)</li>
-                    <li>• Streets</li>
-                    <li>• Njem</li>
-                    <li>• The Quest</li>
-                  </ul>
-                </div>
-
-                {/* TV Movies */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">TV Movies</h3>
-                  <ul className="space-y-1">
-                    <li>• One Too Many (2021)</li>
-                    <li>• Celebrity Girlfriend (2020)</li>
-                    <li>• Picture Perfect (2017)</li>
-                    <li>• Home Invasion (2017)</li>
-                    <li>• A Perfect Christmas (2017)</li>
-                    <li>• Don’t Leave Me (2017)</li>
-                    <li>• Uglybeauty</li>
-                  </ul>
-                </div>
-
-                {/* TV Commercials */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">TV Commercials</h3>
-                  <ul className="space-y-1">
-                    <li>• Mtv Shuga PSA</li>
-                    <li>• Moniepoint</li>
-                    <li>• 9mobile (Cash Token)</li>
-                    <li>• Traction</li>
-                    <li>• Kwiksell</li>
-                    <li>• Softcom</li>
-                    <li>• Kilimanjaro</li>
-                    <li>• All Day</li>
-                    <li>• Doobai</li>
-                    <li>• Lonart</li>
-
-                    <li>• MTN “Turn it up”</li>
-                  </ul>
-                </div>
-                {/* Short Films */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Short Films</h3>
-                  <ul className="space-y-1">
-                    <li>• Corn Roasters</li>
-                    <li>• Life’s Good</li>
-                    <li>• White Dogs</li>
-                    <li>• The Last Condom</li>
-                    <li>• My Stand</li>
-                    <li>• Depth of Field</li>
-                    <li>• Sticks and Love</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div> */}
-          </div>
-        );
-
-      case 5: // Portfolio (My Work)
-        return (
-          <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
-                {currentScreenData.content}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up-delay-2">
-              {currentScreenData.images?.map((image, index) => (
-                <div key={index} className="relative group">
-                  <div className="w-full h-60 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
-                    <Image
-                      src={image}
-                      alt={`Portfolio ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      width={400}
-                      height={400}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <span className="text-white text-sm font-medium">
-                      Look {index + 1}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div> */}
-          </div>
-        );
-
-      case 6: // Testimonials
-        const currentTestimonialData = testimonials[currentTestimonial];
-        return (
-          <div className="text-center text-white px-8 max-w-4xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              {/* <p className="text-xl leading-relaxed font-light mb-8 animate-fade-in-up-delay max-w-3xl mx-auto">
-                {currentScreenData.content}
-              </p> */}
-            </div>
-
-            {/* Testimonial Carousel */}
-            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 mb-8 border border-white/20 animate-fade-in-up-delay-2">
-              <div className="flex items-center justify-between mb-4">
-                <button
-                  onClick={prevTestimonial}
-                  className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-all"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-
-                <div className="flex items-center space-x-4">
-                  <Image
-                    src={currentTestimonialData.image}
-                    alt={currentTestimonialData.name}
-                    className="w-16 h-16 rounded-full border-2 border-white/30"
-                    width={50}
-                    height={50}
-                    // style={{ width: "100%", height: "100%" }}
-                  />
-                  <div className="text-left">
-                    <h3 className="font-semibold text-lg">
-                      {currentTestimonialData.name}
-                    </h3>
-                    <p className="text-white/80 text-sm">
-                      {currentTestimonialData.occasion}
-                    </p>
-                    <div className="flex space-x-1 mt-1">
-                      {[...Array(currentTestimonialData.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  onClick={nextTestimonial}
-                  className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-all"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-
-              <blockquote className="text-lg md:text-xl italic leading-relaxed">
-                {currentTestimonialData.text}
-              </blockquote>
-            </div>
-
-            {/* Testimonial Indicators */}
-            {/* <div className="flex justify-center space-x-2 mb-6">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentTestimonial ? "bg-white" : "bg-white/50"
-                  }`}
-                />
-              ))}
-            </div> */}
-
-            {/* <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div> */}
-          </div>
-        );
-
-      case 5: // Services (Featured Services)
-        return (
-          <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-            <div className="mb-8">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-              <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
-                {currentScreenData.content}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in-up-delay-2">
-              {currentScreenData.images?.map((image, index) => (
-                <div key={index} className="relative group">
-                  <div className="w-full h-48 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
-                    <Image
-                      src={image}
-                      alt={`Service ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      width={400}
-                      height={600}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              ))}
-            </div>
-
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div>
-          </div>
-        );
-
-      default: // Contact
-        return (
-          <div className="text-center text-white px-8 max-w-4xl z-10">
-            <div className="mb-6 animate-bounce-slow">
-              {currentScreenData.icon}
-            </div>
-
-            <div className="mb-4">
-              <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
-                {currentScreenData.subtitle}
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
-                {currentScreenData.title}
-              </h1>
-            </div>
-
-            <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
-              {currentScreenData.content}
-            </p>
-
-            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2 mb-8">
-              <Sparkles className="w-4 h-4 mr-2" />
-              {currentScreenData.accentText}
-            </div>
-
-            <div className="space-y-4 animate-fade-in-up-delay-3">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="tel:+2348066838876" className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Call Now: (234) 806-683-8876
-                </a>
-                <a href="mailto:franarticartistry@gmail.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Email Me
-                </a>
-              </div>
-              <div className="text-sm opacity-80">
-                📍 Available in Lagos, Nigeria and for travel
-              </div>
-            </div>
-          </div>
-        );
-    }
+  // Drag handlers for scrollable gallery
+  const dragHandlers = {
+    onMouseDown: handleMouseDown,
+    onMouseMove: handleMouseMove,
+    onMouseUp: handleMouseUp,
+    onMouseLeave: handleMouseUp,
+    onTouchStart: handleTouchStart,
+    onTouchMove: handleTouchMove,
+    onTouchEnd: handleTouchEnd,
   };
+
+  // Render main content
+  // For testimonials, use ScreenContent, for others, keep content here for now
 
   return (
     <div className="relative w-full min-h-screen overflow-auto hide-scrollbar font-serif">
       {/* Floating Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {floatingElements.map((element, index) => (
-          <div
-            key={index}
-            className="absolute animate-float text-white/20"
-            style={{
-              left: `${Math.random() * 80 + 10}%`,
-              top: `${Math.random() * 80 + 10}%`,
-              animationDelay: element.delay,
-              animationDuration: "6s",
-            }}
-          >
-            {element.icon}
-          </div>
-        ))}
-      </div>
+      <FloatingElements floatingElements={floatingElements} />
 
       {/* Main Screen Content */}
       <div
@@ -837,306 +338,365 @@ export default function MakeupArtistPortfolio() {
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
         <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-white/10 rounded-full blur-lg animate-pulse delay-1000"></div>
         <div className="overflow-y-auto hide-scrollbar max-h-[calc(100vh-8rem)]">
-          {renderScreenContent()}
+          {/* Render testimonials with ScreenContent, others inline */}
+          {currentScreen === 6 ? (
+            <ScreenContent
+              currentScreen={currentScreen}
+              currentScreenData={currentScreenData}
+              testimonials={testimonials}
+              currentTestimonial={currentTestimonial}
+              nextTestimonial={nextTestimonial}
+              prevTestimonial={prevTestimonial}
+              scrollRef={scrollRef}
+              dragHandlers={dragHandlers}
+            />
+          ) : (
+            // Inline rendering for all other screens
+            <>
+              {currentScreen === 0 && (
+                <div className="text-center text-white px-8 max-w-4xl z-10 p-16">
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
+                    <div className="relative">
+                      <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl animate-bounce-slow">
+                        <Image
+                          src={currentScreenData.image}
+                          alt="Francisca Otaigbe"
+                          className="w-full h-full object-cover"
+                          width={400}
+                          height={600}
+                          style={{ width: "100%", height: "100%" }}
+                        />
+                      </div>
+                      <div className="absolute -top-4 -right-4 bg-white/20 backdrop-blur-md rounded-full p-3 border border-white/30">
+                        {currentScreenData.icon}
+                      </div>
+                    </div>
+                    <div className="text-left md:text-left">
+                      <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                        {currentScreenData.subtitle}
+                      </div>
+                      <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                        {currentScreenData.title}
+                      </h1>
+                      <p className="text-lg md:text-xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-lg">
+                        {currentScreenData.content}
+                      </p>
+                      <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2">
+                        <Sparkles className="w-4 h-4 mr-2" />
+                        {currentScreenData.accentText}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {currentScreen === 1 && (
+                <div className="text-white px-8 max-w-6xl mx-auto z-10">
+                  <div className="text-center mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="text-center mb-8">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                  </div>
+                  <div className="flex flex-col md:flex-row items-start gap-8 animate-fade-in-up-delay">
+                    <div className="w-full md:w-1/4 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl">
+                      <Image
+                        src={currentScreenData.images?.[0]}
+                        alt="About"
+                        className="w-full h-auto object-cover"
+                        width={400}
+                        height={600}
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    </div>
+                    <div className="w-full md:w-3/4 text-lg md:text-xl leading-relaxed font-light whitespace-pre-line">
+                      {currentScreenData.content}
+                    </div>
+                  </div>
+                  <div className="flex justify-center mt-10 animate-fade-in-up-delay-3">
+                    <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      {currentScreenData.accentText}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {currentScreen === 2 && (
+                <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
+                  <div className="mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="mb-8">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                    <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
+                      {currentScreenData.content}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in-up-delay-2">
+                    {currentScreenData.images?.map((image, index) => (
+                      <div key={index} className="relative group">
+                        <div className="w-full h-48 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
+                          <Image
+                            src={image}
+                            alt={`Service ${index + 1}`}
+                            className="w-full h-full object-cover"
+                            width={400}
+                            height={400}
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        </div>
+                        SFX Makeup
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-3">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    {currentScreenData.accentText}
+                  </div>
+                </div>
+              )}
+              {currentScreen === 3 && (
+                <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
+                  <div className="mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="mb-8">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                    <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
+                      {currentScreenData.content}
+                    </p>
+                  </div>
+                  <div
+                    className="overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar"
+                    ref={scrollRef}
+                    {...dragHandlers}
+                  >
+                    <div className="flex w-max auto-scroll-x auto-scroll-paused space-x-4">
+                      {currentScreenData.images
+                        .concat(currentScreenData.images)
+                        .map((img, index) => (
+                          <Image
+                            key={index}
+                            src={img}
+                            alt={`Featured ${index + 1}`}
+                            className="w-60 h-80 object-cover rounded-xl shadow-lg flex-shrink-0"
+                            width={254}
+                            height={328}
+                          />
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+              {currentScreen === 4 && (
+                <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
+                  <div className="mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="mb-8">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                    <div className="grid md:grid-cols-5 gap-6 text-left text-white font-light text-sm sm:text-base animate-fade-in-up-delay">
+                      {/* Blockbusters */}
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">Blockbusters</h3>
+                        <ul className="space-y-1">
+                          <li>• Accroche (2022)</li>
+                          <li>• Citation (2020)</li>
+                          <li>• Swallow (2021)</li>
+                          <li>• Nimbe (2018)</li>
+                          <li>• The Money Wives of Patrick</li>
+                          <li>• Deja Vu</li>
+                          <li>• Under</li>
+                        </ul>
+                      </div>
+                      {/* Series */}
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">Series</h3>
+                        <ul className="space-y-1">
+                          <li>• MTV Shuga 6 (2017)</li>
+                          <li>• MTV Shuga Naija 4 (2019)</li>
+                          <li>• Cross Roads (2017)</li>
+                          <li>• Streets</li>
+                          <li>• Njem</li>
+                          <li>• The Quest</li>
+                        </ul>
+                      </div>
+                      {/* TV Movies */}
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">TV Movies</h3>
+                        <ul className="space-y-1">
+                          <li>• One Too Many (2021)</li>
+                          <li>• Celebrity Girlfriend (2020)</li>
+                          <li>• Picture Perfect (2017)</li>
+                          <li>• Home Invasion (2017)</li>
+                          <li>• A Perfect Christmas (2017)</li>
+                          <li>• Don’t Leave Me (2017)</li>
+                          <li>• Uglybeauty</li>
+                        </ul>
+                      </div>
+                      {/* TV Commercials */}
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">TV Commercials</h3>
+                        <ul className="space-y-1">
+                          <li>• Mtv Shuga PSA</li>
+                          <li>• Moniepoint</li>
+                          <li>• 9mobile (Cash Token)</li>
+                          <li>• Traction</li>
+                          <li>• Kwiksell</li>
+                          <li>• Softcom</li>
+                          <li>• Kilimanjaro</li>
+                          <li>• All Day</li>
+                          <li>• Doobai</li>
+                          <li>• Lonart</li>
+                          <li>• MTN “Turn it up”</li>
+                        </ul>
+                      </div>
+                      {/* Short Films */}
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2">Short Films</h3>
+                        <ul className="space-y-1">
+                          <li>• Corn Roasters</li>
+                          <li>• Life’s Good</li>
+                          <li>• White Dogs</li>
+                          <li>• The Last Condom</li>
+                          <li>• My Stand</li>
+                          <li>• Depth of Field</li>
+                          <li>• Sticks and Love</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {currentScreen === 5 && (
+                <div className="text-center text-white px-8 max-w-6xl z-10 p-2">
+                  <div className="mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="mb-8">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                    <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
+                      {currentScreenData.content}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up-delay-2">
+                    {currentScreenData.images?.map((image, index) => (
+                      <div key={index} className="relative group">
+                        <div className="w-full h-60 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
+                          <Image
+                            src={image}
+                            alt={`Portfolio ${index + 1}`}
+                            className="w-full h-full object-cover"
+                            width={400}
+                            height={400}
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                          <span className="text-white text-sm font-medium">
+                            Look {index + 1}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {currentScreen === 7 && (
+                <div className="text-center text-white px-8 max-w-4xl z-10">
+                  <div className="mb-6 animate-bounce-slow">
+                    {currentScreenData.icon}
+                  </div>
+                  <div className="mb-4">
+                    <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
+                      {currentScreenData.subtitle}
+                    </div>
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
+                      {currentScreenData.title}
+                    </h1>
+                  </div>
+                  <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
+                    {currentScreenData.content}
+                  </p>
+                  <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2 mb-8">
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    {currentScreenData.accentText}
+                  </div>
+                  <div className="space-y-4 animate-fade-in-up-delay-3">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <a href="tel:+2348066838876" className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <Phone className="w-4 h-4 mr-2" />
+                        Call Now: (234) 806-683-8876
+                      </a>
+                      <a href="mailto:franarticartistry@gmail.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center">
+                        <Mail className="w-4 h-4 mr-2" />
+                        Email Me
+                      </a>
+                    </div>
+                    <div className="text-sm opacity-80">
+                      📍 Available in Lagos, Nigeria and for travel
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
+          )}
         </div>
       </div>
 
       {/* Navigation Controls */}
-      <div>
-        {/* Desktop Controls: absolute center sides */}
-        <div className="absolute inset-0 hidden md:flex items-center justify-between px-8 pointer-events-none">
-          <button
-            onClick={prevScreen}
-            disabled={currentScreen === 0 || isAnimating}
-            className={`
-        pointer-events-auto group
-        w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-        flex items-center justify-center
-        transition-all duration-300 hover:bg-black/60 hover:scale-110
-        ${
-          currentScreen === 0
-            ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100"
-        }
-      `}
-          >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
-          </button>
-
-          <button
-            onClick={nextScreen}
-            disabled={currentScreen === screens.length - 1 || isAnimating}
-            className={`
-        pointer-events-auto group
-        w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-        flex items-center justify-center
-        transition-all duration-300 hover:bg-black/60 hover:scale-110
-        ${
-          currentScreen === screens.length - 1
-            ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100"
-        }
-      `}
-          >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
-          </button>
-        </div>
-
-        {/* Mobile Controls: fixed bottom-right */}
-        <div className="fixed bottom-4 right-4 flex md:hidden space-x-3 z-50">
-          <button
-            onClick={prevScreen}
-            disabled={currentScreen === 0 || isAnimating}
-            className={`
-        group w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-        flex items-center justify-center transition-all duration-300
-        hover:bg-black/60 hover:scale-110
-        ${
-          currentScreen === 0
-            ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100"
-        }
-      `}
-          >
-            <ChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-          </button>
-
-          <button
-            onClick={nextScreen}
-            disabled={currentScreen === screens.length - 1 || isAnimating}
-            className={`
-        group w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-        flex items-center justify-center transition-all duration-300
-        hover:bg-black/60 hover:scale-110
-        ${
-          currentScreen === screens.length - 1
-            ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100"
-        }
-      `}
-          >
-            <ChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Swipe Navigation */}
-      <div className="md:hidden fixed bottom-4 right-4 flex space-x-3 z-50">
-        <button
-          onClick={prevScreen}
-          disabled={currentScreen === 0 || isAnimating}
-          className={`
-      w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-      flex items-center justify-center
-      transition-all duration-300 hover:bg-black/60
-      ${currentScreen === 0 ? "opacity-30 cursor-not-allowed" : "opacity-80"}
-    `}
-        >
-          <ChevronLeft className="w-5 h-5 text-white" />
-        </button>
-        <button
-          onClick={nextScreen}
-          disabled={currentScreen === screens.length - 1 || isAnimating}
-          className={`
-      w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/20
-      flex items-center justify-center
-      transition-all duration-300 hover:bg-black/60
-      ${
-        currentScreen === screens.length - 1
-          ? "opacity-30 cursor-not-allowed"
-          : "opacity-80"
-      }
-    `}
-        >
-          <ChevronRight className="w-5 h-5 text-white" />
-        </button>
-      </div>
+      <NavigationControls
+        prevScreen={prevScreen}
+        nextScreen={nextScreen}
+        currentScreen={currentScreen}
+        isAnimating={isAnimating}
+        screensLength={screens.length}
+      />
 
       {/* Screen Indicators */}
-      <div className="absolute bottom-8 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4 z-50">
-        {screens.map((screen, index) => (
-          <button
-            key={index}
-            onClick={() => goToScreen(index)}
-            className={`
-              relative group transition-all duration-300 hover:scale-125
-              ${index === currentScreen ? "scale-125" : ""}
-            `}
-          >
-            <div
-              className={`
-              w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300
-              ${
-                index === currentScreen
-                  ? "bg-amber-400 shadow-lg ring-2 md:ring-4 ring-amber-400/30"
-                  : "bg-white/60 hover:bg-white/80"
-              }
-            `}
-            />
-            {/* Screen Labels - Only show on larger screens */}
-            {/* <div
-              className={`
-              absolute -top-6 md:-top-8 left-1/2 transform -translate-x-1/2 
-              text-xs text-white/80 font-medium whitespace-nowrap
-              transition-all duration-300
-              hidden md:block
-              ${
-                index === currentScreen
-                  ? "opacity-100"
-                  : "opacity-0 group-hover:opacity-100"
-              }
-            `}
-            >
-              {screen.subtitle}
-            </div> */}
-          </button>
-        ))}
-      </div>
-        {/* Footer - Bottom Left */}
-<footer>
-<div className="fixed bottom-2 left-4 text-white text-xs opacity-70 z-50">
-  © 2025 Franartic. Powered by <a href="https://www.gnotable.ng" className="underline">Gnotable Technologies</a>
-</div>
-</footer>
-<header>
-      {/* Progress Bar */}
+      <ScreenIndicators
+        screens={screens}
+        currentScreen={currentScreen}
+        goToScreen={goToScreen}
+      />
+
+      {/* Footer */}
+      <FooterBar />
+
+      {/* Header (progress bar, brand, socials) */}
+      <HeaderBar />
+      {/* Progress bar overlay (moved from HeaderBar for dynamic width) */}
       <div className="absolute top-0 left-0 w-full h-1 bg-black/30">
         <div
           className="h-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-700 ease-out shadow-lg"
           style={{ width: `${((currentScreen + 1) / screens.length) * 100}%` }}
         />
       </div>
-
-      {/* Brand badge (centered) and mobile social icons (stacked below it) */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
-        {/* Brand Badge */}
-<div className="bg-white/10 backdrop-blur-lg text-white px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10 shimmer">
-  ✨ Franartic
-</div>
-
-
-        {/* Social Icons for mobile (below badge) */}
-        <div className="flex space-x-4 md:hidden">
-          <a
-            href="https://www.instagram.com/franartic"
-            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-          >
-            {/* 📱 */}
-            {/* <Instagram /> */}
-            <Image
-              src="/assets/img/icons/instagram.svg"
-              alt="Instagram"
-              className="w-5 h-5"
-              width={24}
-              height={24}
-            />
-          </a>
-          <a
-            href="https://www.facebook.com/franartic"
-            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-          >
-            {/* 📷 */}
-            {/* <Facebook /> */}
-            <Image
-              src="/assets/img/icons/facebook.svg"
-              alt="Facebook"
-              className="w-5 h-5"
-              width={24}
-              height={24}
-            />
-          </a>
-          <a
-            href="https://www.x.com/franartic"
-            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-          >
-            {/* 🐦 */}
-            {/* <Twitter /> */}
-            <Image
-              src="/assets/img/icons/x.svg"
-              alt="Twitter"
-              className="w-5 h-5"
-              width={24}
-              height={24}
-            />
-          </a>
-          <a
-            href="https://www.tiktok.com/@franartic"
-            className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-          >
-            {/* 🔗 */}
-            {/* <Linkedin /> */}
-            <Image
-              src="/assets/img/icons/tiktok.svg"
-              alt="tiktok"
-              className="w-5 h-5"
-              width={24}
-              height={24}
-            />
-          </a>
-        </div>
       </div>
-
-      {/* Social Icons for desktop (top-right corner) */}
-      <div className="hidden md:flex absolute top-4 right-4 space-x-4 z-50">
-        <a
-          href="https://www.instagram.com/franartic"
-          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-        >
-          {/* 📱 */}
-          {/* <Instagram /> */}
-          <Image
-            src="/assets/img/icons/instagram.svg"
-            alt="Instagram"
-            className="w-5 h-5"
-            width={24}
-            height={24}
-          />
-        </a>
-        <a
-          href="https://www.facebook.com/franartic"
-          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-        >
-          {/* 📷 */}
-          {/* <Facebook /> */}
-          <Image
-            src="/assets/img/icons/facebook.svg"
-            alt="Facebook"
-            className="w-5 h-5"
-            width={24}
-            height={24}
-          />
-        </a>
-        <a
-          href="https://www.x.com/franartic"
-          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-        >
-          {/* 🐦 */}
-          {/* <Twitter /> */}
-          <Image
-            src="/assets/img/icons/x.svg"
-            alt="Twitter"
-            className="w-5 h-5"
-            width={24}
-            height={24}
-          />
-        </a>
-        <a
-          href="https://www.tiktok.com/@franartic"
-          className="w-8 h-8 md:w-10 md:h-10 bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-all border border-white/20 text-xs md:text-sm"
-        >
-          {/* 🔗 */}
-          {/* <Linkedin /> */}
-          <Image
-            src="/assets/img/icons/tiktok.svg"
-            alt="tiktok"
-            className="w-5 h-5"
-            width={24}
-            height={24}
-          />
-        </a>
-      </div>
-      </header>
-    </div>
-    
-  );
-}
+    );
+  }

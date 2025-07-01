@@ -185,6 +185,8 @@ export default function MakeupArtistPortfolio() {
   const [currentScreen, setCurrentScreen] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
   const scrollRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -248,6 +250,7 @@ export default function MakeupArtistPortfolio() {
   const goToScreen = (index) => {
     if (index !== currentScreen && !isAnimating) {
       setIsAnimating(true);
+      setMobileMenuOpen(false); // Close mobile menu when navigating
       setTimeout(() => {
         setCurrentScreen(index);
         setIsAnimating(false);
@@ -266,12 +269,28 @@ export default function MakeupArtistPortfolio() {
     }
   }, [currentScreen]);
 
+
+  // Handle click outside to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && 
+          !event.target.closest('button[aria-label="Toggle mobile menu"]')) {
+        setMobileMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === "ArrowRight") nextScreen();
       if (e.key === "ArrowLeft") prevScreen();
+      // Close mobile menu on Escape key
+      if (e.key === "Escape") setMobileMenuOpen(false);
     };
-
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [currentScreen, isAnimating]);
@@ -322,6 +341,43 @@ export default function MakeupArtistPortfolio() {
 
   return (
     <div className="relative w-full min-h-screen overflow-auto hide-scrollbar font-serif">
+      {/* Mobile Menu Toggle */}
+      <button
+        aria-label="Toggle mobile menu"
+        className="fixed top-4 right-4 z-[110] p-2 md:hidden bg-black/50 backdrop-blur-sm rounded-full"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        ) : (
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        )}
+      </button>
+
+      {/* Mobile Navigation Menu */}
+      <div
+        ref={mobileMenuRef}
+        className={`fixed top-0 right-0 h-screen w-64 bg-black/90 backdrop-blur-sm z-[105] transform transition-transform duration-300 ease-in-out md:hidden ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="pt-20 px-4">
+          {screens.map((screen, index) => (
+            <button
+              key={screen.id}
+              onClick={() => goToScreen(index)}
+              className={`w-full text-left py-3 px-4 mb-2 rounded-lg transition-colors flex items-center gap-3 ${
+                currentScreen === index
+                  ? "bg-white/20 text-white" : "text-white/60 hover:bg-white/10"
+              }`}
+            >
+              <span className="w-6 h-6 flex items-center justify-center">{screen.icon}</span>
+              <span className="text-base font-medium">{screen.title}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Floating Background Elements */}
       <FloatingElements floatingElements={floatingElements} />
 
@@ -678,11 +734,9 @@ export default function MakeupArtistPortfolio() {
         screensLength={screens.length}
       />
 
-      {/* Screen Indicators - bottom center on desktop, top right/vertical on mobile */}
-      {/* Mobile: top right, vertical stack */}
+      {/* Screen Indicators - Desktop only */}
       <div
-        className="z-[105] flex flex-col gap-2 fixed top-4 right-2 md:hidden"
-        style={{ alignItems: 'flex-end' }}
+        className="hidden md:flex fixed left-1/2 bottom-8 -translate-x-1/2 z-[105] flex-row gap-4 items-center"
       >
         {screens.map((screen, index) => (
           <button

@@ -18,6 +18,7 @@ import {
   PartyPopper
 } from "lucide-react";
 import Image from "next/image";
+import { useState as useImageState } from "react";
 import FloatingElements from "./components/FloatingElements";
 import HeaderBar from "./components/HeaderBar";
 import FooterBar from "./components/FooterBar";
@@ -336,21 +337,44 @@ export default function MakeupArtistPortfolio() {
     onTouchEnd: handleTouchEnd,
   };
 
-  // Render main content
-  // For testimonials, use ScreenContent, for others, keep content here for now
+
+// Image skeleton loader component
+function ImageWithSkeleton({ src, alt, className, width, height, style }) {
+  const [loaded, setLoaded] = useImageState(false);
+  return (
+    <div className="relative w-full h-full">
+      {!loaded && (
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-gray-300 via-gray-200 to-gray-100 animate-pulse rounded-2xl z-10"
+          style={{ width: width || '100%', height: height || '100%' }}
+        />
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        className={className + (loaded ? '' : ' opacity-0')}
+        width={width}
+        height={height}
+        style={style}
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+      />
+    </div>
+  );
+}
 
   return (
     <div className="relative w-full min-h-screen overflow-auto hide-scrollbar font-serif">
       {/* Mobile Menu Toggle */}
       <button
         aria-label="Toggle mobile menu"
-        className="fixed top-4 right-4 z-[110] p-2 md:hidden bg-black/50 backdrop-blur-sm rounded-full"
+        className="fixed top-4 right-4 z-[110] p-2 md:hidden bg-black/20 backdrop-blur-sm rounded-full"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         {mobileMenuOpen ? (
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          <svg className="w-6 h-6 text-gray" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
         ) : (
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          <svg className="w-6 h-6 text-gray" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
         )}
       </button>
 
@@ -416,7 +440,7 @@ export default function MakeupArtistPortfolio() {
                   <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
                     <div className="relative">
                       <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl animate-bounce-slow">
-                        <Image
+                        <ImageWithSkeleton
                           src={currentScreenData.image}
                           alt="Francisca Otaigbe"
                           className="w-full h-full object-cover"
@@ -462,7 +486,7 @@ export default function MakeupArtistPortfolio() {
                   </div>
                   <div className="flex flex-col md:flex-row items-start gap-8 animate-fade-in-up-delay">
                     <div className="w-full md:w-1/4 flex-shrink-0 rounded-2xl overflow-hidden shadow-xl">
-                      <Image
+                      <ImageWithSkeleton
                         src={currentScreenData.images?.[0]}
                         alt="About"
                         className="w-full h-auto object-cover"
@@ -503,7 +527,7 @@ export default function MakeupArtistPortfolio() {
                     {currentScreenData.images?.map((image, index) => (
                       <div key={index} className="relative group">
                         <div className="w-full h-48 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
-                          <Image
+                          <ImageWithSkeleton
                             src={image}
                             alt={`Service ${index + 1}`}
                             className="w-full h-full object-cover"
@@ -548,7 +572,7 @@ export default function MakeupArtistPortfolio() {
                       {currentScreenData.images
                         .concat(currentScreenData.images)
                         .map((img, index) => (
-                          <Image
+                          <ImageWithSkeleton
                             key={index}
                             src={img}
                             alt={`Featured ${index + 1}`}
@@ -666,7 +690,7 @@ export default function MakeupArtistPortfolio() {
                     {currentScreenData.images?.map((image, index) => (
                       <div key={index} className="relative group">
                         <div className="w-full h-60 rounded-2xl overflow-hidden shadow-xl transform group-hover:scale-105 transition-all duration-300">
-                          <Image
+                          <ImageWithSkeleton
                             src={image}
                             alt={`Portfolio ${index + 1}`}
                             className="w-full h-full object-cover"

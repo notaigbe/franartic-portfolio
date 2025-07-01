@@ -1,7 +1,7 @@
 import React from "react";
 
 const ScreenIndicators = ({ screens, currentScreen, goToScreen }) => (
-  <div className="absolute bottom-8 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4 z-50">
+  <div className="absolute bottom-10 md:bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-4 z-50">
     {screens.map((screen, index) => (
       <button
         key={index}

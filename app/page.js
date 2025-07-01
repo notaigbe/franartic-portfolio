@@ -678,12 +678,66 @@ export default function MakeupArtistPortfolio() {
         screensLength={screens.length}
       />
 
-      {/* Screen Indicators */}
-      <ScreenIndicators
-        screens={screens}
-        currentScreen={currentScreen}
-        goToScreen={goToScreen}
-      />
+      {/* Screen Indicators - bottom center on desktop, top right/vertical on mobile */}
+      {/* Mobile: top right, vertical stack */}
+      <div
+        className="z-[105] flex flex-col gap-2 fixed top-4 right-2 md:hidden"
+        style={{ alignItems: 'flex-end' }}
+      >
+        {screens.map((screen, index) => (
+          <button
+            key={index}
+            onClick={() => goToScreen(index)}
+            className={`
+              relative group transition-all duration-300 hover:scale-125
+              ${index === currentScreen ? "scale-125" : ""}
+              w-4 h-4
+              focus:outline-none
+            `}
+            aria-label={`Go to screen ${screen.title}`}
+          >
+            <div
+              className={`
+                w-4 h-4 rounded-full transition-all duration-300
+                ${
+                  index === currentScreen
+                    ? "bg-amber-400 shadow-lg ring-4 ring-amber-400/30"
+                    : "bg-white/60 hover:bg-white/80"
+                }
+              `}
+            />
+          </button>
+        ))}
+      </div>
+      {/* Desktop: bottom center, horizontal row */}
+      <div
+        className="hidden md:flex fixed left-1/2 bottom-8 -translate-x-1/2 z-[105] flex-row gap-4 items-center"
+      >
+        {screens.map((screen, index) => (
+          <button
+            key={index}
+            onClick={() => goToScreen(index)}
+            className={`
+              relative group transition-all duration-300 hover:scale-125
+              ${index === currentScreen ? "scale-125" : ""}
+              w-4 h-4
+              focus:outline-none
+            `}
+            aria-label={`Go to screen ${screen.title}`}
+          >
+            <div
+              className={`
+                w-4 h-4 rounded-full transition-all duration-300
+                ${
+                  index === currentScreen
+                    ? "bg-amber-400 shadow-lg ring-4 ring-amber-400/30"
+                    : "bg-white/60 hover:bg-white/80"
+                }
+              `}
+            />
+          </button>
+        ))}
+      </div>
 
       {/* Footer */}
       <FooterBar />

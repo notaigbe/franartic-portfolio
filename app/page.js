@@ -28,13 +28,13 @@ const screens = [
   {
     id: "hero",
     title: "Francisca Otaigbe",
-    subtitle: "Professional Makeup Artist",
+    subtitle: "Beauty and Special Effects Makeup Artist",
     content: "From brush to screen: Crafting characters, telling stories",
     bgColor: "bg-gradient-to-br from-slate-800 via-gray-800 to-neutral-900",
     icon: (
       <Sparkles className="w-16 h-16 md:w-20 md:h-20 text-amber-400 mb-4" />
     ),
-    accentText: "Franartic",
+    accentText: "Hair and Makeup Design for Film",
     image: "/assets/img/me.jpg",
   },
   {
@@ -53,7 +53,7 @@ const screens = [
     title: "My Services",
     subtitle: "Specializing In",
     content:
-      "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
+      "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers • Special Effects",
     bgColor: "bg-gradient-to-br from-amber-900 via-amber-800 to-orange-900",
     icon: <BadgeCheck className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
     accentText: "All Occasions Covered",
@@ -354,14 +354,16 @@ export default function MakeupArtistPortfolio() {
         )}
       </button>
 
-      {/* Mobile Navigation Menu */}
-      <div
+      {/* Mobile Navigation Menu - slides down from the menu button at top right */}
+      <nav
+        aria-label="Mobile Navigation"
         ref={mobileMenuRef}
-        className={`fixed top-0 right-0 h-screen w-64 bg-black/90 backdrop-blur-sm z-[105] transform transition-transform duration-300 ease-in-out md:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-2 right-4 w-64 md:hidden z-[105] bg-stone/90 backdrop-blur-lg shadow-2xl rounded-b-2xl overflow-hidden
+          transition-transform duration-300 ease-in-out origin-top-right
+          ${mobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}
+        `}
       >
-        <div className="pt-20 px-4">
+        <div className="pt-12 pb-4 px-4">
           {screens.map((screen, index) => (
             <button
               key={screen.id}
@@ -376,13 +378,13 @@ export default function MakeupArtistPortfolio() {
             </button>
           ))}
         </div>
-      </div>
+      </nav>
 
       {/* Floating Background Elements */}
       <FloatingElements floatingElements={floatingElements} />
 
       {/* Main Screen Content */}
-      <div
+       <div
         className={`
           ${currentScreenData.bgColor} 
           w-full min-h-screen flex items-center justify-center relative

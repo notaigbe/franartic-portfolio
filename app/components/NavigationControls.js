@@ -22,7 +22,7 @@ const NavigationControls = ({
           ${currentScreen === 0 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
         `}
       >
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform cursor-pointer" />
       </button>
       <button
         onClick={nextScreen}
@@ -35,7 +35,7 @@ const NavigationControls = ({
           ${currentScreen === screensLength - 1 ? "opacity-30 cursor-not-allowed" : "opacity-80 hover:opacity-100"}
         `}
       >
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform" />
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-white group-hover:scale-110 transition-transform cursor-pointer" />
       </button>
     </div>
     {/* Mobile Controls */}

@@ -15,8 +15,9 @@ import {
   User,
   Baby,
   BadgeCheck,
-  PartyPopper
+  PartyPopper,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 import { useState as useImageState } from "react";
 import FloatingElements from "./components/FloatingElements";
@@ -45,7 +46,7 @@ const screens = [
     content:
       "I’m a seasoned beauty and special effects makeup artist with over seven years of professional experience and two AMVCA nominations. From film sets to TV screens, I have carved a space for myself as a transformative storyteller — one brush stroke, one prosthetic piece at a time.\n\nAs a freelance artist, I’ve worked across multiple productions and currently lead a talented team of makeup artists and hairstylists on film and television projects. My artistry is rooted in a deep love for storytelling, where every detail becomes a living chapter in a character’s journey.\n\nDriven by the power of transformation, I breathe life into scripts — whether it’s subtle glam or full-blown gore. My mission is always the same: to bring the director’s vision to life, to make audiences believe, feel, and remember.\n\nI don’t just do makeup, I build identities.",
     bgColor: "bg-gradient-to-br from-blue-900 via-pink-900 to-red-900",
-    icon: <User className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <User className="w-16 h-16 md:w-20 md:h-20 text-green-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: ["/assets/img/about.jpg"],
   },
@@ -56,7 +57,7 @@ const screens = [
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers • Special Effects",
     bgColor: "bg-gradient-to-br from-amber-900 via-amber-800 to-orange-900",
-    icon: <BadgeCheck className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <BadgeCheck className="w-16 h-16 md:w-20 md:h-20 text-rose-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
       "/assets/img/portfolio/portfolio-1.png",
@@ -71,7 +72,7 @@ const screens = [
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
     bgColor: "bg-gradient-to-br from-amber-900 via-sky-800 to-rose-900",
-    icon: <PartyPopper className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <PartyPopper className="w-16 h-16 md:w-20 md:h-20 text-blue-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
       "/assets/img/featured/featured-1.png",
@@ -93,7 +94,7 @@ const screens = [
     content:
       "Bridal • Editorial • Special Events • Photoshoots • Glam Makeovers",
     bgColor: "bg-gradient-to-br from-gray-900 via-amber-800 to-slate-900",
-    icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-amber-300 mb-4" />,
+    icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-pink-300 mb-4" />,
     accentText: "All Occasions Covered",
     images: [
       "/assets/img/portfolio/portfolio-1.png",
@@ -125,7 +126,7 @@ const screens = [
     content:
       '"Sophia made me feel like a goddess on my wedding day. Her attention to detail is unmatched!" - Sarah K.',
     bgColor: "bg-gradient-to-br from-rose-900 via-pink-900 to-red-900",
-    icon: <Star className="w-16 h-16 md:w-20 md:h-20 text-rose-300 mb-4" />,
+    icon: <Star className="w-16 h-16 md:w-20 md:h-20 text-teal-300 mb-4" />,
     accentText: "5 Star Rating",
   },
   {
@@ -564,7 +565,7 @@ function ImageWithSkeleton({ src, alt, className, width, height, style }) {
                     </p>
                   </div>
                   <div
-                    className="overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar"
+                    className="overflow-x-auto cursor-grab active:cursor-grabbing hide-scrollbar rounded-xl"
                     ref={scrollRef}
                     {...dragHandlers}
                   >
@@ -572,7 +573,7 @@ function ImageWithSkeleton({ src, alt, className, width, height, style }) {
                       {currentScreenData.images
                         .concat(currentScreenData.images)
                         .map((img, index) => (
-                          <ImageWithSkeleton
+                          <Image
                             key={index}
                             src={img}
                             alt={`Featured ${index + 1}`}
@@ -597,7 +598,7 @@ function ImageWithSkeleton({ src, alt, className, width, height, style }) {
                     <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up tracking-tight">
                       {currentScreenData.title}
                     </h1>
-                    <div className="grid md:grid-cols-5 gap-6 text-left text-white font-light text-sm sm:text-base animate-fade-in-up-delay">
+                    <div className="grid md:grid-cols-5 gap-6 text-left text-white font-light text-sm sm:text-base animate-fade-in-up-delay ">
                       {/* Blockbusters */}
                       <div>
                         <h3 className="text-lg font-semibold mb-2">Blockbusters</h3>
@@ -730,15 +731,21 @@ function ImageWithSkeleton({ src, alt, className, width, height, style }) {
                     {currentScreenData.accentText}
                   </div>
                   <div className="space-y-4 animate-fade-in-up-delay-3">
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
                       <a href="tel:+2348066838876" className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                         <Phone className="w-4 h-4 mr-2" />
                         Call Now: (234) 806-683-8876
                       </a>
-                      <a href="mailto:franarticartistry@gmail.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Email Me
+                      <div className="flex md:flex-row gap-4 justify-center items-center">
+                        <a href="mailto:franarticartistry@gmail.com" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center transform hover:-translate-y-1">
+                          <Mail className="w-4 h-4 mr-2" />
+                          Email Me
+                        </a>
+                        <a href="https://wa.me/2348066838876" className="bg-teal-800 text-white-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <FaWhatsapp className="w-4 h-4 mr-2" />
+                        WhatsApp
                       </a>
+                      </div>
                     </div>
                     <div className="text-sm opacity-80">
                       📍 Available in Lagos, Nigeria and for travel
@@ -801,7 +808,7 @@ function ImageWithSkeleton({ src, alt, className, width, height, style }) {
               relative group transition-all duration-300 hover:scale-125
               ${index === currentScreen ? "scale-125" : ""}
               w-4 h-4
-              focus:outline-none
+              focus:outline-none cursor-pointer
             `}
             aria-label={`Go to screen ${screen.title}`}
           >

@@ -1,0 +1,30 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\notai\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.1.0
+2 info using node@v22.14.0
+3 silly config load:file:C:\Users\notai\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:g:\notai\VSCodeProjects\franartic-portfolio\.npmrc
+5 silly config load:file:C:\Users\notai\.npmrc
+6 silly config load:file:C:\Users\notai\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm outdated
+8 verbose argv "outdated" "--json"
+9 verbose logfile logs-max:10 dir:G:\notai\VSCodeProjects\franartic-portfolio\notai\packages\npm\_logs\2025-07-05T20_18_49_350Z-
+10 verbose logfile G:\notai\VSCodeProjects\franartic-portfolio\notai\packages\npm\_logs\2025-07-05T20_18_49_350Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+14 http fetch GET 200 https://registry.npmjs.org/react-icons 2427ms (cache miss)
+15 http fetch GET 200 https://registry.npmjs.org/@eslint%2feslintrc 2456ms (cache revalidated)
+16 http fetch GET 200 https://registry.npmjs.org/@tailwindcss%2fpostcss 2750ms (cache updated)
+17 http fetch GET 200 https://registry.npmjs.org/lucide-react 2883ms (cache updated)
+18 http fetch GET 200 https://registry.npmjs.org/eslint 2964ms (cache updated)
+19 http fetch GET 200 https://registry.npmjs.org/react 3373ms (cache updated)
+20 http fetch GET 200 https://registry.npmjs.org/eslint-config-next 3397ms (cache updated)
+21 http fetch GET 200 https://registry.npmjs.org/react-dom 3468ms (cache updated)
+22 http fetch GET 200 https://registry.npmjs.org/tailwindcss 5443ms (cache updated)
+23 http fetch GET 200 https://registry.npmjs.org/next 9390ms (cache updated)
+24 verbose cwd g:\notai\VSCodeProjects\franartic-portfolio
+25 verbose os Windows_NT 10.0.22631
+26 verbose node v22.14.0
+27 verbose npm  v11.1.0
+28 verbose exit 1
+29 verbose code 1

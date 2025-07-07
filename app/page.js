@@ -17,6 +17,8 @@ import Portfolio from "@/app/components/screens/Portfolio";
 import Testimonials from "@/app/components/screens/Testimonials";
 import Contact from "@/app/components/screens/Contact";
 import ScreenNavigation from "./components/ScreenNavigation";
+import { useScreenNavigation } from "@/app/hooks/useScreenNavigation";
+
 
 const screenComponents = {
   hero: Hero,
@@ -30,41 +32,47 @@ const screenComponents = {
 };
 
 export default function MakeupArtistPortfolio() {
-  const [currentScreen, setCurrentScreen] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+const {
+  currentScreen,
+  isAnimating,
+  nextScreen,
+  prevScreen,
+  goToScreen,
+} = useScreenNavigation(screens.length);
+
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
-  const nextScreen = () => {
-    if (currentScreen < screens.length - 1 && !isAnimating) {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentScreen(currentScreen + 1);
-        setIsAnimating(false);
-      }, 400);
-    }
-  };
+  // const nextScreen = () => {
+  //   if (currentScreen < screens.length - 1 && !isAnimating) {
+  //     setIsAnimating(true);
+  //     setTimeout(() => {
+  //       setCurrentScreen(currentScreen + 1);
+  //       setIsAnimating(false);
+  //     }, 400);
+  //   }
+  // };
 
-  const prevScreen = () => {
-    if (currentScreen > 0 && !isAnimating) {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentScreen(currentScreen - 1);
-        setIsAnimating(false);
-      }, 400);
-    }
-  };
+  // const prevScreen = () => {
+  //   if (currentScreen > 0 && !isAnimating) {
+  //     setIsAnimating(true);
+  //     setTimeout(() => {
+  //       setCurrentScreen(currentScreen - 1);
+  //       setIsAnimating(false);
+  //     }, 400);
+  //   }
+  // };
 
-  const goToScreen = (index) => {
-    if (index !== currentScreen && !isAnimating) {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentScreen(index);
-        setIsAnimating(false);
-      }, 400);
-    }
-  };
+  // const goToScreen = (index) => {
+  //   if (index !== currentScreen && !isAnimating) {
+  //     setIsAnimating(true);
+  //     setTimeout(() => {
+  //       setCurrentScreen(index);
+  //       setIsAnimating(false);
+  //     }, 400);
+  //   }
+  // };
 
   // Auto-advance testimonials
   useEffect(() => {

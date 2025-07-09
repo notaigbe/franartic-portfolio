@@ -7,7 +7,7 @@ export default function Featured({ data }) {
   const { scrollRef, dragHandlers } = useDragScroll();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center text-white px-8 max-w-6xl z-10 p-2 mx-auto w-full">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center text-[#492f05] px-8 max-w-6xl z-10 p-2 mx-auto w-full">
       <div className="mb-6 animate-bounce-slow w-full flex justify-start">{data.icon}</div>
       <div className="mb-8 w-full">
         <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">

@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 export default function Hero({ data }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center text-white px-8 max-w-4xl z-10 p-16 mx-auto w-full h-full min-h-[60vh]">
+    <div className="flex flex-col items-center justify-center text-center text-[#492f05] px-8 max-w-4xl z-10 p-16 mx-auto w-full h-full min-h-[60vh]">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8 w-full">
         <div className="relative flex-shrink-0 flex items-center justify-center">
           <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl animate-bounce-slow">

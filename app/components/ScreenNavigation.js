@@ -34,11 +34,11 @@ export default function ScreenNavigation({
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-[#492f05]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
-          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 text-[#492f05]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         )}
@@ -63,8 +63,8 @@ export default function ScreenNavigation({
               }}
               className={`w-full text-left py-3 px-4 mb-2 rounded-lg transition-colors flex items-center gap-3 ${
                 currentScreen === index
-                  ? "bg-white/20 text-white"
-                  : "text-white/60 hover:bg-white/10"
+                  ? "bg-white/20 text-[#492f05]"
+                  : "text-[#492f05]/80 hover:bg-white/10"
               }`}
             >
               <span className="w-6 h-6 flex items-center justify-center">{screen.icon}</span>

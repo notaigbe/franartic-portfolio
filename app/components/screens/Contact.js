@@ -5,7 +5,7 @@ import { Sparkles } from "lucide-react";
 
 export default function Contact({ data }) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center text-white px-8 max-w-4xl z-10 mx-auto w-full">
+    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center text-[#492f05] px-8 max-w-4xl z-10 mx-auto w-full">
       <div className="mb-6 animate-bounce-slow w-full flex justify-start">{data.icon}</div>
       <div className="mb-4 w-full">
         <div className="text-sm font-light tracking-widest uppercase opacity-80 mb-2">
@@ -37,7 +37,7 @@ export default function Contact({ data }) {
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center transform hover:-translate-y-1"
             >
               <Mail className="w-4 h-4 mr-2" />
-              Email Me
+              Email
             </a>
             <a
               href="https://wa.me/2348066838876"

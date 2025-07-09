@@ -4,7 +4,7 @@ import { Sparkles } from "lucide-react";
 
 export default function About({ data }) {
   return (
-    <div className="text-white px-8 max-w-6xl mx-auto z-10">
+    <div className="text-[#492f05] px-8 max-w-6xl mx-auto z-10">
       <div className="text-center mb-6 animate-bounce-slow">
         {data.icon}
       </div>

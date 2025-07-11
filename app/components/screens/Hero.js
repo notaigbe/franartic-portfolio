@@ -12,6 +12,7 @@ export default function Hero({ data }) {
               src={data.image}
               alt="Francisca Otaigbe"
               className="w-full h-full object-cover"
+              fetchpriority="high"
               width={400}
               height={600}
               style={{ width: "100%", height: "100%" }}

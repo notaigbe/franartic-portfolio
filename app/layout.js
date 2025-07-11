@@ -28,7 +28,7 @@ export const metadata = {
     description: "Bridal, Glam, SFX makeup by Francisca Otaigbe in Lagos State, Nigeria",
     type: "website",
     locale: "en_NG",
-    url: "https://franartic.com",
+    url: "https://franartic.vercel.app",
     siteName: "Franartic SFX Artist Portfolio",
     images: [
       {
@@ -43,7 +43,7 @@ export const metadata = {
     icon: "/favicon.ico",
   },
   alternates: {
-    canonical: "https://franartic.com",
+    canonical: "https://franartic.vercel.app",
   },
   other: {
     "application/ld+json": JSON.stringify({
@@ -51,7 +51,7 @@ export const metadata = {
       '@type': 'Person',
       name: 'Francisca Otaigbe',
       jobTitle: 'Makeup Artist',
-      url: 'https://franartic.com',
+      url: 'https://franartic.vercel.app',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Lagos',

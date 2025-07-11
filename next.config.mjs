@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ['via.placeholder.com'],
     unoptimized: true, // Use this if you want to disable Next.js image optimization
   },
-  output: "export",
+  // output: "export",
   // optionally:
   trailingSlash: true, // recommended for static hosting
 };

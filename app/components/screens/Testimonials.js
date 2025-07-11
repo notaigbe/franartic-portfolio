@@ -22,7 +22,22 @@ export default function Testimonials({
           {data.title}
         </h1>
       </div>
-      <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl animate-fade-in-up-delay-2 w-full max-w-xl mx-auto">
+      <div className="relative bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-xl animate-fade-in-up-delay-2 w-full max-w-xl mx-auto">
+        {/* Navigation Buttons - Top Left & Right */}
+        <button
+          onClick={prevTestimonial}
+          className="absolute top-4 left-4 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all z-10 cursor-pointer"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+        <button
+          onClick={nextTestimonial}
+          className="absolute top-4 right-4 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all z-10 cursor-pointer"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
         <div className="flex justify-center mb-6">
           <Image
             src={testimonial.image}
@@ -42,20 +57,6 @@ export default function Testimonials({
             <Star key={i} className="w-4 h-4 text-amber-400" fill="currentColor" />
           ))}
         </div>
-      </div>
-      <div className="flex justify-center mt-6 gap-4">
-        <button
-          onClick={prevTestimonial}
-          className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all"
-        >
-          <ChevronLeft className="w-6 h-6 text-white" />
-        </button>
-        <button
-          onClick={nextTestimonial}
-          className="p-3 rounded-full bg-white/20 hover:bg-white/30 transition-all"
-        >
-          <ChevronRight className="w-6 h-6 text-white" />
-        </button>
       </div>
     </div>
   );

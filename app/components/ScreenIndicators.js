@@ -16,7 +16,7 @@ const ScreenIndicators = ({ screens, currentScreen, goToScreen }) => (
             w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300
             ${
               index === currentScreen
-                ? "bg-amber-400 shadow-lg ring-2 md:ring-4 ring-amber-400/30"
+                ? "bg-[#492f05] shadow-lg ring-2 md:ring-4 ring-[#492f05]/30"
                 : "bg-white/60 hover:bg-white/80"
             }
           `}

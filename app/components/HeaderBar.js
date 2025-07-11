@@ -9,7 +9,7 @@ const HeaderBar = () => (
     </div>
     {/* Brand badge and mobile social icons */}
     <div className="absolute top-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3 md:space-y-0 z-50">
-      <div className="bg-white/10 backdrop-blur-lg text-[#492f05] px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10 shimmer">
+      <div className="bg-white/10 backdrop-blur-lg text-[#492f05] px-5 py-2 rounded-full text-2xl font-medium border border-white/20 shadow-lg ring-1 ring-white/10 shimmer text-center">
         ✨ Franartic
       </div>
       <div className="flex space-x-4 md:hidden">

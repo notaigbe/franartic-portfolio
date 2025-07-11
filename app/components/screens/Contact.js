@@ -18,10 +18,10 @@ export default function Contact({ data }) {
       <p className="text-xl md:text-2xl leading-relaxed font-light mb-6 animate-fade-in-up-delay max-w-3xl mx-auto">
         {data.content}
       </p>
-      <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2 mb-8">
+      {/* <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium animate-fade-in-up-delay-2 mb-8">
         <Sparkles className="w-4 h-4 mr-2" />
         {data.accentText}
-      </div>
+      </div> */}
       <div className="space-y-4 animate-fade-in-up-delay-3 w-full">
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
           <a
@@ -29,12 +29,12 @@ export default function Contact({ data }) {
             className="bg-white text-gray-800 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             <Phone className="w-4 h-4 mr-2" />
-            Call Now: (234) 806-683-8876
+            Call Now
           </a>
           <div className="flex md:flex-row gap-4 justify-center items-center">
             <a
               href="mailto:franarticartistry@gmail.com"
-              className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center transform hover:-translate-y-1"
+              className="bg-[#492f05] px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-gray-800 transition-all duration-300 flex items-center transform hover:-translate-y-1"
             >
               <Mail className="w-4 h-4 mr-2" />
               Email

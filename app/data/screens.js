@@ -44,9 +44,9 @@ const screens = [
     icon: <BadgeCheck className="w-16 h-16 md:w-20 md:h-20 text-[#492f05] mb-4" />,
     accentText: "All Occasions Covered",
     images: [
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
+      "/assets/img/services/services-1.jpg",
+      "/assets/img/services/services-2.jpg",
+      "/assets/img/services/services-3.jpg",
     ],
   },
   {
@@ -81,9 +81,9 @@ const screens = [
     icon: <Palette className="w-16 h-16 md:w-20 md:h-20 text-[#492f05] mb-4" />,
     accentText: "All Occasions Covered",
     images: [
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
+      "/assets/img/other-projects/project-1.jpg",
+      "/assets/img/other-projects/project-2.jpg",
+      "/assets/img/other-projects/project-3.jpg",
     ],
   },
 
@@ -97,10 +97,10 @@ const screens = [
     icon: <Camera className="w-16 h-16 md:w-20 md:h-20 text-[#492f05] mb-4" />,
     accentText: "500+ Happy Clients",
     images: [
-      "/assets/img/portfolio/portfolio-1.png",
-      "/assets/img/portfolio/portfolio-2.jpeg",
-      "/assets/img/portfolio/portfolio-3.png",
-      "/assets/img/portfolio/portfolio-4.png",
+      "/assets/img/portfolio/portfolio-1.jpg",
+      "/assets/img/portfolio/portfolio-2.jpg",
+      "/assets/img/portfolio/portfolio-4.jpg",
+      "/assets/img/portfolio/portfolio-6.jpg",
     ],
   },
   {

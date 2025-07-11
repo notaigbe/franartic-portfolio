@@ -70,6 +70,18 @@ const screens = [
       "/assets/img/featured/featured-9.jpg",
       "/assets/img/featured/featured-10.jpg",
     ],
+    details: [
+      { title: "Here Love Lies", year: 2020, role: "H.O.D. Makeup and Hair (Nigeria Unit)" },
+      { title: "Eyimofe", year: 2018, role: "H.O.D. Makeup and Hair" },
+      { title: "Adam Bol", year: 2024, role: "H.O.D. Beauty and SFX Makeup" },
+      { title: "Family Brouhaha", year: 2024, role: "H.O.D. Makeup and Hair" },
+      { title: "Black Harvest", year: 2022, role: "Special Effects Makeup" },
+      { title: "Style Magnate", year: 2024, role: "H.O.D. Makeup and Hair" },
+      { title: "Oloture", year: 2023, role: "Special Effects Makeup" },
+      { title: "Orah", year: 2022, role: "Beauty, SFX Makeup and Hair" },
+      { title: "King of Thieves", year: 2021, role: "H.O.D. Makeup" },
+      { title: "Over the Bridge", year: 2022, role: "H.O.D. Makeup and Hair" },
+    ],
  },
   {
     id: "other-projects",
@@ -101,6 +113,28 @@ const screens = [
       "/assets/img/portfolio/portfolio-2.jpg",
       "/assets/img/portfolio/portfolio-4.jpg",
       "/assets/img/portfolio/portfolio-6.jpg",
+    ],
+    details: [
+      {
+        title: "Bridal Glam",
+        year: 2024,
+        description: "Elegant bridal look for a Lagos wedding, featuring soft glam and flawless skin."
+      },
+      {
+        title: "Mystique Transformation",
+        year: 2023,
+        description: "Special effects makeup: Marvel's Mystique look, featuring blue skin, scales, and yellow eyes."
+      },
+      {
+        title: "Red Carpet Ready",
+        year: 2022,
+        description: "Celebrity red carpet event, classic Hollywood waves and glowing makeup."
+      },
+      {
+        title: "Avant-Garde Artistry",
+        year: 2024,
+        description: "Creative avant-garde look for a magazine cover, featuring graphic liner and gems."
+      },
     ],
   },
   {

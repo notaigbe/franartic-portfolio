@@ -1,20 +1,42 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageWithSkeleton from "../ImageWithSkeleton";
-import { X, ChevronDown } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Portfolio({ data }) {
-  const [activeOverlay, setActiveOverlay] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
-  const handleImageClick = (image, index) => {
+  const handleImageClick = (image, index, e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setSelectedImage({ src: image, index });
-    setActiveOverlay(null);
   };
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setSelectedImage(null);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const clientHeight = window.innerHeight;
+      
+      // Show back-to-top when user is near the bottom (within 300px)
+      const isNearBottom = scrollHeight - (scrollTop + clientHeight) < 300;
+      setShowBackToTop(isNearBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -32,56 +54,57 @@ export default function Portfolio({ data }) {
           </p>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 animate-fade-in-up-delay-2 w-full">
-          {data.images?.map((image, index) => {
-            const isActive = activeOverlay === index;
-            return (
-              <div
-                key={index}
-                className="relative group cursor-pointer"
-                onTouchStart={e => {
-                  if (!isActive) setActiveOverlay(index);
-                }}
-                onMouseLeave={() => {
-                  if (activeOverlay !== null) setActiveOverlay(null);
-                }}
-              >
-                <div 
-                  className={`w-full h-60 rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 group-hover:scale-105${isActive ? " scale-105" : ""}`}
-                  onClick={() => handleImageClick(image, index)}
-                >
-                  <ImageWithSkeleton
-                    src={image}
-                    alt={`Portfolio ${index + 1}`}
-                    className="w-full h-full object-cover"
-                    width={400}
-                    height={400}
-                    style={{ width: "100%", height: "100%" }}
-                  />
-                </div>
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/90 to-transparent rounded-2xl flex items-end p-4 transition-opacity duration-300 pointer-events-none ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+          {data.images?.map((image, index) => (
+            <div
+              key={index}
+              className="relative group cursor-pointer"
+              onClick={(e) => handleImageClick(image, index, e)}
+            >
+              <div className="w-full h-60 rounded-2xl overflow-hidden shadow-xl transform transition-all duration-300 active:scale-95 md:group-hover:scale-105">
+                <ImageWithSkeleton
+                  src={image}
+                  alt={`Portfolio ${index + 1}`}
+                  className="w-full h-full object-cover"
+                  width={400}
+                  height={400}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </div>
+              
+              {/* Description overlay - only show on desktop hover */}
+              {data.details && data.details[index]?.description && (
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent rounded-2xl flex items-end p-4 transition-opacity duration-300 pointer-events-none opacity-0 md:group-hover:opacity-100">
                   <span className="text-white text-sm font-medium">
-                    {data.details && data.details[index]?.description}
+                    {data.details[index].description}
                   </span>
                 </div>
-                {isActive && (
-                  <div
-                    className="fixed inset-0 z-40"
-                    style={{ touchAction: "none" }}
-                    onClick={() => setActiveOverlay(null)}
-                  />
-                )}
-              </div>
-            );
-          })}
+              )}
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Fixed Scroll Down Indicator */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center animate-bounce">
-        <ChevronDown className="w-8 h-8 text-[#492f05] opacity-60" />
-        <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 mt-1">
-          Scroll for more
-        </span>
+      {/* Scroll Indicator / Back to Top Button */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center transition-all duration-300">
+        {showBackToTop ? (
+          <button
+            onClick={scrollToTop}
+            className="flex flex-col items-center group cursor-pointer hover:scale-110 transition-transform"
+            aria-label="Back to top"
+          >
+            <ChevronUp className="w-8 h-8 text-[#492f05] opacity-60 group-hover:opacity-100 transition-opacity" />
+            <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 group-hover:opacity-100 mt-1 transition-opacity">
+              Back to top
+            </span>
+          </button>
+        ) : (
+          <div className="flex flex-col items-center animate-bounce pointer-events-none">
+            <ChevronDown className="w-8 h-8 text-[#492f05] opacity-60" />
+            <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 mt-1">
+              Scroll for more
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Full-screen Image Modal */}
@@ -98,7 +121,10 @@ export default function Portfolio({ data }) {
             <X className="w-6 h-6 md:w-8 md:h-8" />
           </button>
           
-          <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center">
+          <div 
+            className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             <ImageWithSkeleton
               src={selectedImage.src}
               alt={`Full view ${selectedImage.index + 1}`}
@@ -110,7 +136,7 @@ export default function Portfolio({ data }) {
           </div>
 
           {/* Image counter and description */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center pointer-events-none">
             <div className="text-white bg-black/50 px-4 py-2 rounded-full backdrop-blur-sm mb-2">
               {selectedImage.index + 1} / {data.images?.length}
             </div>

@@ -1,10 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageWithSkeleton from "../ImageWithSkeleton";
-import { X, ChevronDown } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function OtherProjects({ data }) {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   const handleImageClick = (image, index) => {
     setSelectedImage({ src: image, index });
@@ -13,6 +14,25 @@ export default function OtherProjects({ data }) {
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const clientHeight = window.innerHeight;
+      
+      // Show back-to-top when user is near the bottom (within 300px)
+      const isNearBottom = scrollHeight - (scrollTop + clientHeight) < 300;
+      setShowBackToTop(isNearBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -50,12 +70,27 @@ export default function OtherProjects({ data }) {
         </div>
       </div>
 
-      {/* Fixed Scroll Down Indicator */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center animate-bounce">
-        <ChevronDown className="w-8 h-8 text-[#492f05] opacity-60" />
-        <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 mt-1">
-          Scroll for more
-        </span>
+      {/* Scroll Indicator / Back to Top Button */}
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center transition-all duration-300">
+        {showBackToTop ? (
+          <button
+            onClick={scrollToTop}
+            className="flex flex-col items-center group cursor-pointer hover:scale-110 transition-transform"
+            aria-label="Back to top"
+          >
+            <ChevronUp className="w-8 h-8 text-[#492f05] opacity-60 group-hover:opacity-100 transition-opacity" />
+            <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 group-hover:opacity-100 mt-1 transition-opacity">
+              Back to top
+            </span>
+          </button>
+        ) : (
+          <div className="flex flex-col items-center animate-bounce pointer-events-none">
+            <ChevronDown className="w-8 h-8 text-[#492f05] opacity-60" />
+            <span className="text-sm font-light tracking-wide text-[#492f05] opacity-60 mt-1">
+              Scroll for more
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Full-screen Image Modal */}

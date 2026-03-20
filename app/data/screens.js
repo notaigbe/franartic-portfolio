@@ -173,7 +173,7 @@ const screens = [
     title: "What Clients Say",
     subtitle: "Testimonials",
     content:
-      '"Sophia made me feel like a goddess on my wedding day. Her attention to detail is unmatched!" - Sarah K.',
+      '"Francisca made me feel like a goddess on my wedding day. Her attention to detail is unmatched!" - Sarah K.',
     bgColor: "bg-gradient-to-br from-rose-200 via-[#C1BA9A] to-[#D9B270]",
     icon: <Star className="w-16 h-16 md:w-20 md:h-20 text-[#492f05] mb-4" />,
     accentText: "5 Star Rating",

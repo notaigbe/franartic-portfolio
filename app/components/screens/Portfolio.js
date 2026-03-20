@@ -19,11 +19,13 @@ export default function Portfolio({ data }) {
   const handleImageClick = (image, index) => {
     setSelectedImage({ src: image, index });
     resetZoom();
+    document.dispatchEvent(new CustomEvent("portfolioModalOpen", { detail: true }));
   };
 
   const closeModal = () => {
     setSelectedImage(null);
     resetZoom();
+    document.dispatchEvent(new CustomEvent("portfolioModalOpen", { detail: false }));
   };
 
   const resetZoom = () => {
@@ -122,8 +124,8 @@ export default function Portfolio({ data }) {
           className="fixed inset-0 bg-black/98 z-[9999] flex flex-col md:flex-row animate-fade-in"
           onWheel={handleWheel}
         >
-          {/* Controls Overlay */}
-          <div className="absolute top-6 right-6 flex items-center gap-4 z-[10000]">
+          {/* Controls Overlay — desktop only */}
+          <div className="absolute bottom-6 right-6 md:flex hidden items-center gap-4 z-[10000]">
             <button onClick={resetZoom} className="p-3 bg-white/10 rounded-full text-white/70 hover:text-white backdrop-blur-md transition-all" title="Reset Zoom">
               <RefreshCw className="w-5 h-5" />
             </button>
@@ -134,7 +136,7 @@ export default function Portfolio({ data }) {
 
           {/* Left: Interactive Image Viewport */}
           <div 
-            className="flex-[3] relative w-full h-[60vh] md:h-full flex items-center justify-center overflow-hidden cursor-zoom-out"
+            className="flex-[3] relative w-full h-full flex items-center justify-center overflow-hidden cursor-zoom-out"
             onClick={closeModal}
             onMouseDown={onMouseDown}
             onMouseMove={onMouseMove}
@@ -163,6 +165,15 @@ export default function Portfolio({ data }) {
             </div>
           </div>
 
+              {/* Mobile Controls — between image and details */}
+            <div className="md:hidden flex items-center justify-center gap-4 z-[10000] bg-black">
+              <button onClick={resetZoom} className="p-3 bg-white/10 rounded-full text-white/70 transition-all" title="Reset Zoom">
+                <RefreshCw className="w-5 h-5" />
+              </button>
+              <button onClick={closeModal} className="p-3 bg-white/10 rounded-full text-white/70 transition-all">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
           {/* Right: Info Panel */}
           <div 
             className={`flex-[1.5] bg-black md:bg-transparent p-8 md:p-12 flex flex-col justify-center space-y-6 transition-opacity duration-300 ${scale > 1.1 ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}
@@ -178,9 +189,9 @@ export default function Portfolio({ data }) {
             <p className="text-gray-300 text-lg md:text-xl font-light leading-relaxed">
               {data.details?.[selectedImage.index]?.description || "A professional showcase of high-quality work. Use your mouse wheel or pinch to see fine details."}
             </p>
-            <button onClick={closeModal} className="w-fit border-2 border-white/20 text-white/90 py-4 px-10 rounded-full hover:bg-white hover:text-black transition-all text-xs uppercase font-black">
+            {/* <button onClick={closeModal} className="w-fit border-2 border-white/20 text-white/90 py-4 px-10 rounded-full hover:bg-white hover:text-black transition-all text-xs uppercase font-black md:static fixed bottom-8 left-1/2 -translate-x-1/2 z-[10001] md:translate-x-0 md:bottom-auto">
               Close
-            </button>
+            </button> */}
           </div>
         </div>
       )}

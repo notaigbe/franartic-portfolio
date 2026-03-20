@@ -19,11 +19,13 @@ export default function OtherProjects({ data }) {
   const handleImageClick = (image, index) => {
     setSelectedImage({ src: image, index });
     resetTransform();
+    document.dispatchEvent(new CustomEvent("portfolioModalOpen", { detail: true }));
   };
 
   const closeModal = () => {
     setSelectedImage(null);
     resetTransform();
+    document.dispatchEvent(new CustomEvent("portfolioModalOpen", { detail: false }));
   };
 
   const resetTransform = () => {
@@ -117,20 +119,20 @@ export default function OtherProjects({ data }) {
       {selectedImage && (
         <div className="fixed inset-0 bg-black/98 z-[9999] flex flex-col md:flex-row animate-fade-in overflow-hidden">
           
-          {/* Controls Overlay */}
-          <div className="absolute top-6 right-6 flex gap-3 z-[10000]">
-             <button onClick={resetTransform} className="p-3 bg-white/10 rounded-full text-white/70 hover:text-white backdrop-blur-md" title="Reset View">
-              <RefreshCw className="w-5 h-5" />
-            </button>
-            <button onClick={closeModal} className="p-3 bg-white/10 rounded-full text-white/70 hover:text-white backdrop-blur-md">
-              <X className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Controls Overlay — desktop only */}
+        <div className="absolute bottom-6 right-6 md:flex hidden items-center gap-4 z-[10000]">
+          <button onClick={resetTransform} className="p-3 bg-white/10 rounded-full text-white/70 hover:text-white backdrop-blur-md transition-all" title="Reset Zoom">
+            <RefreshCw className="w-5 h-5" />
+          </button>
+          <button onClick={closeModal} className="p-3 bg-white/10 rounded-full text-white/70 hover:text-white backdrop-blur-md transition-all">
+            <X className="w-6 h-6" />
+          </button>
+        </div>
 
           {/* Left: Interactive Image Viewport */}
           <div 
             ref={containerRef}
-            className="flex-[2] relative w-full h-[60vh] md:h-full flex items-center justify-center overflow-hidden bg-black/20"
+            className="flex-[2] relative w-full h-[60vh] md:h-full flex items-start justify-center overflow-hidden bg-black/20"
             onWheel={handleWheel}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -147,9 +149,10 @@ export default function OtherProjects({ data }) {
               <ImageWithSkeleton
                 src={selectedImage.src}
                 alt="Panable View"
-                className="max-w-screen max-h-screen object-contain pointer-events-none select-none"
+                className="max-w-screen max-h-screen w-full h-full object-contain pointer-events-none select-none"
                 width={2000}
                 height={1500}
+                // style={{width:'auto', height:'100%'}}
               />
             </div>
 
@@ -159,18 +162,28 @@ export default function OtherProjects({ data }) {
             </div>
           </div>
 
+              {/* Mobile Controls — between image and details */}
+            <div className="md:hidden flex items-center justify-center gap-4 z-[10000] bg-black">
+              <button onClick={resetTransform} className="p-3 bg-white/10 rounded-full text-white/70 transition-all" title="Reset Zoom">
+                <RefreshCw className="w-5 h-5" />
+              </button>
+              <button onClick={closeModal} className="p-3 bg-white/10 rounded-full text-white/70 transition-all">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            
           {/* Right: Static Info Panel (Desktop) / Bottom Panel (Mobile) */}
           <div className={`flex-1 bg-black md:bg-transparent p-8 md:p-16 flex flex-col justify-center transition-opacity duration-300 ${scale > 1.2 ? 'md:opacity-100 opacity-0' : 'opacity-100'}`}>
             <div className="max-w-sm">
-              <p className="text-amber-500 font-mono text-xs tracking-[0.4em] mb-2 uppercase">Project {selectedImage.index + 1}</p>
-              <h2 className="text-white text-5xl font-black mb-6">Discovery</h2>
+              {/* <p className="text-amber-500 font-mono text-xs tracking-[0.4em] mb-2 uppercase">Project {selectedImage.index + 1}</p>
+              <h2 className="text-white text-5xl font-black mb-6">Discovery</h2> */}
               <div className="h-1 w-12 bg-amber-500 mb-6" />
               <p className="text-gray-400 text-lg font-light leading-relaxed mb-8">
                 {data.details?.[selectedImage.index]?.description || "Explore the fine details of this piece. On mobile, use two fingers to pinch and zoom. On desktop, use your scroll wheel."}
               </p>
-              <button onClick={closeModal} className="border border-white/20 text-white/80 py-3 px-10 rounded-full hover:bg-white hover:text-black transition-all text-xs font-bold uppercase tracking-widest">
+              {/* <button onClick={closeModal} className="border border-white/20 text-white/80 py-3 px-10 rounded-full hover:bg-white hover:text-black transition-all text-xs font-bold uppercase tracking-widest">
                 Close
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

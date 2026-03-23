@@ -101,7 +101,7 @@ export default function About({ data }) {
       </div>
 
       {/* Fixed Video Thumbnails Bar */}
-      <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xs border-t border-[#492f05]/10 z-40 px-4 py-4">
+      <div className="fixed bottom-20 md:bottom-0 left-0 right-0 backdrop-blur-xs border-t border-[#492f05]/10 z-40 px-4 py-4">
         <div className="max-w-6xl mx-auto overflow-hidden">
           <div className="flex sm:items-end sm:justify-end items-center justify-center gap-3 flex-wrap">
             {videos.map((video, index) => (

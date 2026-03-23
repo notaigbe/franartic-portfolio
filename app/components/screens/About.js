@@ -102,16 +102,16 @@ export default function About({ data }) {
 
       {/* Fixed Video Thumbnails Bar */}
       <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xs border-t border-[#492f05]/10 z-40 px-4 py-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex sm:items-end sm:justify-end items-center justify-center gap-4">
+        <div className="max-w-6xl mx-auto overflow-hidden">
+          <div className="flex sm:items-end sm:justify-end items-center justify-center gap-3 flex-wrap">
             {videos.map((video, index) => (
               <button
                 key={index}
                 onClick={() => openVideo(video)}
-                className="relative group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="relative group rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex-shrink-0"
                 aria-label={`Play ${video.title}`}
               >
-                <div className="w-20 h-28 md:w-24 md:h-36 bg-gradient-to-br from-gray-800 to-gray-900 relative">
+                <div className="w-16 h-24 sm:w-20 sm:h-28 md:w-24 md:h-36 bg-gradient-to-br from-gray-800 to-gray-900 relative">
                   <img
                     src={video.thumbnail}
                     alt={video.title}
